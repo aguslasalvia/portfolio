@@ -93,7 +93,7 @@ const projects = [
 		title: "QUITEL 2023",
 		description:
 			"Conference management system for QUITEL 2023, featuring registration, schedule management, and abstract submissions.",
-		image: "/quitel.png",
+		image: "/projects/quitel.png",
 		stack: ["React", "NodeJS", "MongoDB", "Typescript", "Express.JS"],
 		github: "https://github.com/AgusLasalvia/Congress-2023",
 		demo: "https://quitelcongress-showcase.netlify.app/",
@@ -104,7 +104,7 @@ const projects = [
 		title: "SorvisLater",
 		description:
 			"A platform for scheduling and managing service appointments with real-time notifications.",
-		image: "/sorvis.png",
+		image: "/projects/sorvis.png",
 		stack: ["NodeJS", "Supabase", "Express", "Typescript", "Prisma"],
 		github: "https://github.com/AgusLasalvia/SorviceLater",
 		demo: "https://sorvislater.netlify.app/login",
@@ -114,7 +114,7 @@ const projects = [
 		title: "Tambo",
 		description:
 			"Dairy farm management system built with .NET, handling inventory, production, and sales tracking.",
-		image: "/tambo.png",
+		image: "/projects/tambo.png",
 		stack: ["C#", ".NET", "MVC"],
 		github: "https://github.com/AgusLasalvia/Tambo",
 		demo: "https://tambo.onrender.com/",
@@ -123,34 +123,51 @@ const projects = [
 	{
 		title: "YourDelivery",
 		description:
-			"Food delivery management system with real-time order tracking and restaurant integration.",
-		image: "/delivery.png",
-		stack: ["C#", ".NET", "MVC", "Entity Framework"],
+			"Package delivery management system with real-time order tracking and restaurant integration.",
+		image: "/projects/delivery.png",
+		stack: ["C#", ".NET", "MVC", "Entity Framework", "CSS", "HTML"],
 		github: "https://github.com/AgusLasalvia/YourDelivery",
 		demo: "https://yourdelivery.onrender.com/",
 		status: "Finished",
 	},
 
 	{
-		title: "Recisaver App",
+		title: "Research Equipment Usage Log",
 		description:
-			"Mobile app for saving and organizing recipes with shopping list integration.",
-		image: "/recisaver.png",
-		stack: ["React Native", "Expo", "Reanimated", "Typescript"],
-		github: "https://github.com/AgusLasalvia/recisaver-app",
+			"WebApp for a Research Equipment Usage Log to store the usage and condition of a list of lab equipment",
+		image: "/projects/bitacora.png",
+		stack: [
+			"HTML",
+			"CSS",
+			"JavaScript",
+			"Go",
+			"Gin",
+			"Bootstrap",
+			"SQLite",
+			"Linux",
+		],
+		github: "https://github.com/AgusLasalvia/bitacora-cefi-go",
 		demo: "",
-		status: "Progress",
+		status: "Finished",
 	},
 
 	{
-		title: "Recisaver Server",
+		title: "UniWave",
 		description:
-			"Backend service for the Recisaver app, handling user data and recipe management.",
-		image: "/github.png",
-		stack: ["NodeJS", "Supabase", "SQL", "Express", "Typescript", "Prisma"],
-		github: "https://github.com/AgusLasalvia/recisaver-server",
-		demo: "",
-		status: "Progress",
+			"A social network designed for Uruguayan university students to connect, share posts, and interact within an academic community.",
+		image: "/projects/uniwave.png",
+		stack: [
+			"React Native",
+			"Expo",
+			"Typescript",
+			"Go",
+			"JWT",
+			"Firebase",
+			"MinIO",
+		],
+		github: "https://github.com/AgusLasalvia/uniwave-social-media",
+		demo: "https://uniwave.online",
+		status: "Finished",
 	},
 ];
 
