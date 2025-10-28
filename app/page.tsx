@@ -103,9 +103,9 @@ const projects = [
 	{
 		title: "SorvisLater",
 		description:
-			"A platform for scheduling and managing service appointments with real-time notifications.",
+			"A new Ticket Tracker solution, created for Minecraft, but made for everything build in React and NodeJS.",
 		image: "/projects/sorvis.png",
-		stack: ["NodeJS", "Supabase", "Express", "Typescript", "Prisma"],
+		stack: ["NodeJS", "MySQL", "Express", "Typescript","React"],
 		github: "https://github.com/AgusLasalvia/SorviceLater",
 		demo: "https://sorvislater.netlify.app/login",
 		status: "Finished",
