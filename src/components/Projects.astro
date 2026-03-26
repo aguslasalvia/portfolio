@@ -1,0 +1,102 @@
+---
+import { portfolio } from '../data/portfolio';
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+      {portfolio.projects.map(project => (
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="title">{project.title}</h3>
+            <div class="project-links">
+              {project.github && (
+                <a href={project.github} target="_blank" rel="noopener">GitHub</a>
+              )}
+              {project.demo && (
+                <a href={project.demo} target="_blank" rel="noopener">Demo</a>
+              )}
+            </div>
+          </div>
+          <p class="description">{project.description}</p>
+          <div class="tech">
+            {project.tech.map(t => (
+              <span class="badge">{t}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .project-links a {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .project-links a:hover {
+    text-decoration: underline;
+  }
+
+  .description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+  }
+</style>

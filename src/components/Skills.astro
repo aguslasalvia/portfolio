@@ -1,0 +1,48 @@
+---
+import { portfolio } from '../data/portfolio';
+---
+
+<section id="skills" class="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-list">
+      {portfolio.skills.map(skill => (
+        <div class="skill-item">
+          <h3 class="skill-name">{skill.name}</h3>
+          <p class="skill-projects-label">Used in: {skill.projects || 'None'}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: all 0.2s;
+  }
+
+  .skill-item:hover {
+    border-color: var(--accent);
+  }
+
+  .skill-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .skill-projects-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+</style>

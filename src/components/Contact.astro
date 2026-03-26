@@ -1,0 +1,26 @@
+---
+import { portfolio } from '../data/portfolio';
+---
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="text">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+    <a href={`mailto:${portfolio.contact.email}`} class="btn btn-primary">
+      Say Hello
+    </a>
+  </div>
+</section>
+
+<style>
+  .contact {
+    text-align: center;
+  }
+
+  .text {
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+</style>

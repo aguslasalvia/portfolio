@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://aguslasalvia.vercel.app/sitemap.xml 

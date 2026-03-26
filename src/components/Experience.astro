@@ -1,0 +1,77 @@
+---
+import { portfolio } from '../data/portfolio';
+---
+
+<section id="experience" class="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      {portfolio.experience.map(exp => (
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <h3 class="title">{exp.title}</h3>
+            <span class="period">{exp.period}</span>
+          </div>
+          <p class="company">{exp.company} · {exp.location}</p>
+          <p class="description">{exp.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 700px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .period {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .company {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+</style>
