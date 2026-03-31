@@ -5,13 +5,13 @@ export const portfolio = {
   greeting: 'Hola, soy',
   description: "I'm a Junior Full-Stack Developer with a passion for creating and solving problems. Ready for new adventures!",
   cvLink: '/Agustin Lasalvia 2025 CV.pdf',
-  
+
   socials: {
     linkedin: 'https://www.linkedin.com/in/agustin-lasalvia/',
     github: 'https://github.com/AgusLasalvia',
     instagram: 'https://www.instagram.com/agustin.lasalvia/'
   },
-  
+
   about: [
     "I'm a Junior Full-Stack Developer with a passion for creating and solving problems, Ready for new adventures!",
     'I have experience building web applications with React, Node.js, and various backend technologies. I enjoy tackling complex challenges and continuously learning new tools and frameworks.',
@@ -51,7 +51,7 @@ export const portfolio = {
       description: 'Conference management system for QUITEL 2023, featuring registration, schedule management, and abstract submissions.',
       tech: ['React', 'NodeJS', 'MongoDB', 'Typescript', 'Express.js'],
       github: 'https://github.com/AgusLasalvia/Congress-2023',
-      demo: 'https://quitelcongress-showcase.netlify.app/'
+      demo: 'https://quitel.aguslasalvia.online/'
     },
     {
       title: 'SorvisLater',
@@ -72,7 +72,7 @@ export const portfolio = {
       description: 'Package delivery management system with real-time order tracking and restaurant integration.',
       tech: ['C#', '.NET', 'MVC', 'Entity Framework', 'CSS', 'HTML'],
       github: 'https://github.com/AgusLasalvia/YourDelivery',
-      demo: 'https://yourdelivery.onrender.com/'
+      demo: 'https://yourdelivery.aguslasalvia.online/'
     },
     {
       title: 'Research Equipment Usage Log',
@@ -86,7 +86,7 @@ export const portfolio = {
       description: 'A social network designed for Uruguayan university students to connect, share posts, and interact within an academic community.',
       tech: ['React Native', 'Expo', 'Typescript', 'Go', 'JWT', 'Firebase', 'MinIO'],
       github: 'https://github.com/AgusLasalvia/uniwave-social-media',
-      demo: 'https://uniwave.online'
+      demo: 'https://uniwave.aguslasalvia.online'
     }
   ],
 
