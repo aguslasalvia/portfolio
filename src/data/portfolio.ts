@@ -91,7 +91,7 @@ export const portfolio = {
     {
       title: "Chemistry Net",
       description: "A solution for the landing page of uruguayan University of Chemistry - UDELAR, it's a CMS basic solution using ASP.NET and React. Implementing Clean Architecture and for the UI, I used the opencode LLM model, that way I can focused on the entire backend",
-      tech: ['HTML', 'CSS', 'ASP.NET', 'C#', 'Entity Framework'],
+      tech: ['HTML', 'CSS', 'ASP.NET', 'C#', 'Entity Framework', 'SQLite'],
       github: 'https://github.com/aguslasalvia/chemistry-net',
       demo: 'https://fq.aguslasalvia.online'
     }
