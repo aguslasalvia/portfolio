@@ -1,9 +1,9 @@
 export const portfolio = {
   name: 'Agustin Lasalvia',
-  title: 'Full Stack Developer',
+  title: 'Backend Developer',
   location: 'Montevideo - Uruguay',
   greeting: 'Hola, soy',
-  description: "I'm a Junior Full-Stack Developer with a passion for creating and solving problems. Ready for new adventures!",
+  description: "I'm a Junior Backend Developer with a passion for creating and solving problems. Ready for new adventures!",
   cvLink: '/Agustin Lasalvia 2025 CV.pdf',
 
   socials: {
@@ -13,7 +13,7 @@ export const portfolio = {
   },
 
   about: [
-    "I'm a Junior Full-Stack Developer with a passion for creating and solving problems, Ready for new adventures!",
+    "I'm a Junior Backend Developer with a passion for creating and solving problems, Ready for new adventures!",
     'I have experience building web applications with React, Node.js, and various backend technologies. I enjoy tackling complex challenges and continuously learning new tools and frameworks.',
     "Currently focused on expanding my skills in Go and building more full-stack applications."
   ],
@@ -21,8 +21,8 @@ export const portfolio = {
   skills: [
     { name: 'TypeScript', projects: 'QUITEL 2023, SorvisLater, Recisaver App' },
     { name: 'Node.js', projects: 'QUITEL 2023, SorvisLater, Recisaver Server' },
-    { name: 'React', projects: 'QUITEL 2023, Recisaver App' },
-    { name: 'C#', projects: 'Tambo, YourDelivery' },
+    { name: 'React', projects: 'QUITEL 2023, Chemistry Net' },
+    { name: 'C#', projects: 'Tambo, YourDelivery,Chemistry Net' },
     { name: 'Python', projects: '' },
     { name: 'MySQL', projects: 'Tambo, YourDelivery' },
     { name: 'Go', projects: 'Research Equipment Usage Log, UniWave' },
@@ -87,6 +87,13 @@ export const portfolio = {
       tech: ['React Native', 'Expo', 'Typescript', 'Go', 'JWT', 'Firebase', 'MinIO'],
       github: 'https://github.com/AgusLasalvia/uniwave-social-media',
       demo: 'https://uniwave.aguslasalvia.online'
+    },
+    {
+      title: "Chemistry Net",
+      description: "A solution for the landing page of uruguayan University of Chemistry - UDELAR, it's a CMS basic solution using ASP.NET and React. Implementing Clean Architecture and for the UI, I used the opencode LLM model, that way I can focused on the entire backend",
+      tech: ['HTML', 'CSS', 'ASP.NET', 'C#', 'Entity Framework'],
+      github: 'https://github.com/aguslasalvia/chemistry-net',
+      demo: 'https://fq.aguslasalvia.online'
     }
   ],
 
