@@ -4,10 +4,11 @@ import { portfolio } from '../data/portfolio';
 
 <section id="about" class="about">
   <div class="container">
-    <h2 class="section-title">About</h2>
+    <span class="section-eyebrow fade-in">Who I am</span>
+    <h2 class="section-title fade-in fade-in-delay-1">About me</h2>
     <div class="content">
-      {portfolio.about.map(paragraph => (
-        <p>{paragraph}</p>
+      {portfolio.about.map((paragraph, i) => (
+        <p class={`fade-in fade-in-delay-${i + 1}`}>{paragraph}</p>
       ))}
     </div>
   </div>
@@ -19,16 +20,15 @@ import { portfolio } from '../data/portfolio';
   }
 
   .content {
-    max-width: 700px;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
   }
 
   .content p {
     color: var(--text-secondary);
-    margin-bottom: 1.25rem;
-    line-height: 1.7;
-  }
-
-  .content p:last-child {
-    margin-bottom: 0;
+    line-height: 1.8;
+    font-size: 0.975rem;
   }
 </style>

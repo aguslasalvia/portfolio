@@ -3,8 +3,9 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <div class="container">
-    <p>&copy; {year} Agustin. Built with Astro.</p>
+  <div class="container footer-inner">
+    <p class="copy">&copy; {year} Agustin Lasalvia</p>
+    <p class="built-with">Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a></p>
   </div>
 </footer>
 
@@ -12,11 +13,30 @@ const year = new Date().getFullYear();
   .footer {
     padding: 2rem 0;
     border-top: 1px solid var(--border);
-    text-align: center;
   }
 
-  .footer p {
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .copy,
+  .built-with {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .built-with a {
     color: var(--text-secondary);
-    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .built-with a:hover {
+    color: var(--text-primary);
   }
 </style>

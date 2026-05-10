@@ -3,99 +3,131 @@ import { portfolio } from "../data/portfolio";
 ---
 
 <section id="contact" class="contact">
+  <div class="contact-glow" aria-hidden="true"></div>
   <div class="container">
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="text">
-      I'm always open to discussing new projects, creative ideas or
-      opportunities to be part of your visions.
-    </p>
-    <form
-      action={`mailto:${portfolio.contact.email}`}
-      method="get"
-      enctype="text/plain"
-      class="contact-form"
-    >
-      <div class="form-group">
-        <label for="subject">Name</label>
-        <input type="text" id="subject" name="subject" placeholder="Your Name" required />
+    <div class="contact-inner fade-in">
+      <h2 class="contact-heading">Let's build something together</h2>
+      <p class="contact-text">{portfolio.contact.text}</p>
+
+      <a href={`mailto:${portfolio.contact.email}`} class="btn btn-primary email-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Say hello
+      </a>
+
+      <div class="divider" aria-hidden="true">or find me on</div>
+
+      <div class="socials fade-in fade-in-delay-2">
+        <a href={portfolio.socials.github} target="_blank" rel="noopener" class="social-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href={portfolio.socials.linkedin} target="_blank" rel="noopener" class="social-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href={portfolio.socials.instagram} target="_blank" rel="noopener" class="social-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
       </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required />
-      </div>
-      <div class="form-group">
-        <label for="body">Message</label>
-        <textarea id="body" name="body" rows="5" placeholder="Your Message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
+    </div>
+  </div>
+</section>
 
 <style>
   .contact {
+    position: relative;
+    overflow: hidden;
     text-align: center;
   }
 
-  .text {
-    color: var(--text-secondary);
-    max-width: 500px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
+  .contact-glow {
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(99, 102, 241, 0.07) 0%, transparent 70%);
+    pointer-events: none;
   }
 
-  .contact-form {
-    max-width: 500px;
+  .contact-inner {
+    max-width: 580px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    text-align: left;
+    align-items: center;
+    gap: 0;
   }
 
-  .form-group {
+  .contact-heading {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-text {
+    color: var(--text-secondary);
+    font-size: 0.975rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    max-width: 420px;
+  }
+
+  .email-btn {
+    font-size: 0.95rem;
+    padding: 0.85rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .divider {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  label {
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    width: 60px;
+  }
+
+  .socials {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-secondary);
-  }
-
-  input,
-  textarea {
-    padding: 0.75rem 1rem;
-    background: var(--bg-secondary);
+    color: var(--text-muted);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .social-btn:hover {
+    border-color: var(--border-hover);
     color: var(--text-primary);
-    font-family: inherit;
-    font-size: 0.95rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.6;
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  .contact-form .btn {
-    margin-top: 0.5rem;
-    justify-content: center;
-    width: 100%;
+    background: var(--bg-card);
   }
 </style>

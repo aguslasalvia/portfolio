@@ -1,15 +1,30 @@
 ---
 import { portfolio } from '../data/portfolio';
+
+const categories = [
+  { label: 'Backend', key: 'backend' as const, icon: '⚙' },
+  { label: 'Frontend', key: 'frontend' as const, icon: '◈' },
+  { label: 'Databases & Tools', key: 'tools' as const, icon: '◎' },
+];
 ---
 
 <section id="skills" class="skills">
   <div class="container">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-list">
-      {portfolio.skills.map(skill => (
-        <div class="skill-item">
-          <h3 class="skill-name">{skill.name}</h3>
-          <p class="skill-projects-label">Used in: {skill.projects || 'None'}</p>
+    <span class="section-eyebrow fade-in">What I work with</span>
+    <h2 class="section-title fade-in fade-in-delay-1">Skills</h2>
+
+    <div class="categories">
+      {categories.map((cat, i) => (
+        <div class={`category fade-in fade-in-delay-${i + 1}`}>
+          <div class="category-header">
+            <span class="category-icon">{cat.icon}</span>
+            <h3 class="category-label">{cat.label}</h3>
+          </div>
+          <div class="skill-list">
+            {portfolio.skills[cat.key].map(skill => (
+              <span class="skill-pill">{skill.name}</span>
+            ))}
+          </div>
         </div>
       ))}
     </div>
@@ -17,32 +32,74 @@ import { portfolio } from '../data/portfolio';
 </section>
 
 <style>
-  .skills-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+  .skills {
+    background: var(--bg-secondary);
   }
 
-  .skill-item {
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .category {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: border-color 0.25s;
+  }
+
+  .category:hover {
+    border-color: var(--border-hover);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .category-icon {
+    font-size: 1rem;
+    color: var(--accent-light);
+    line-height: 1;
+  }
+
+  .category-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.25rem;
-    transition: all 0.2s;
-  }
-
-  .skill-item:hover {
-    border-color: var(--accent);
-  }
-
-  .skill-name {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-
-  .skill-projects-label {
-    font-size: 0.75rem;
+    border-radius: 100px;
     color: var(--text-secondary);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+  }
+
+  @media (max-width: 768px) {
+    .categories {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

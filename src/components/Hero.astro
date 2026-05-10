@@ -3,31 +3,45 @@ import { portfolio } from '../data/portfolio';
 ---
 
 <section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+
   <div class="container">
     <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="name">{portfolio.name}</h1>
-        <p class="title">{portfolio.title}</p>
-        <p class="location">{portfolio.location}</p>
-        <p class="description">{portfolio.description}</p>
-        <div class="cta">
-          <a href={portfolio.cvLink} class="btn btn-primary" download>Download CV</a>
-          <a href="#projects" class="btn btn-outline">Projects</a>
-        </div>
-        <div class="socials">
-          <a href={portfolio.socials.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href={portfolio.socials.github} target="_blank" rel="noopener" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
-          <a href={portfolio.socials.instagram} target="_blank" rel="noopener" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
+      <div class="hero-image-wrap">
+        <div class="hero-image-ring">
+          <img src="/profile.jpg" alt={portfolio.name} class="hero-image" />
         </div>
       </div>
-      <div class="hero-image">
-        <img src="/profile.jpg" alt={portfolio.name} />
+
+      <div class="hero-text">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">{portfolio.name}</h1>
+        <p class="hero-title">{portfolio.title}</p>
+        <p class="hero-location">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          {portfolio.location}
+        </p>
+        <p class="hero-description">{portfolio.description}</p>
+
+        <div class="cta">
+          <a href={portfolio.cvLink} class="btn btn-primary" download>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+          <a href="#projects" class="btn btn-outline">View Projects</a>
+        </div>
+
+        <div class="socials">
+          <a href={portfolio.socials.github} target="_blank" rel="noopener" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href={portfolio.socials.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href={portfolio.socials.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -35,80 +49,147 @@ import { portfolio } from '../data/portfolio';
 
 <style>
   .hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 4rem;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, transparent 65%);
+    pointer-events: none;
   }
 
   .hero-content {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
   }
 
+  /* Desktop: image is first in DOM but goes to the right */
+  .hero-image-wrap { order: 2; }
+  .hero-text { order: 1; }
+
   .hero-text {
-    max-width: 500px;
+    max-width: 520px;
   }
 
-  .name {
+  .hero-eyebrow {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-name {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.4rem;
+    animation: fadeUp 0.6s 0.05s ease both;
   }
 
-  .title {
-    font-size: 1.5rem;
+  .hero-title {
+    font-size: 1.25rem;
+    font-weight: 500;
     color: var(--text-secondary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.6rem;
+    animation: fadeUp 0.6s 0.1s ease both;
   }
 
-  .location {
-    color: var(--accent);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+  .hero-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.6s 0.15s ease both;
   }
 
-  .description {
+  .hero-description {
+    font-size: 0.95rem;
     color: var(--text-secondary);
+    line-height: 1.75;
     margin-bottom: 2rem;
-    line-height: 1.7;
+    animation: fadeUp 0.6s 0.2s ease both;
   }
 
   .cta {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
     margin-bottom: 2rem;
+    animation: fadeUp 0.6s 0.25s ease both;
   }
 
   .socials {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
+    animation: fadeUp 0.6s 0.3s ease both;
   }
 
   .socials a {
-    color: var(--text-secondary);
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
 
   .socials a:hover {
-    color: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-light);
+    background: var(--accent-glow);
+  }
+
+  /* Profile image */
+  .hero-image-wrap {
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-image-ring {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--bg-card) 60%);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
   }
 
   .hero-image {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--border);
-  }
-
-  .hero-image img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
+    display: block;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 768px) {
@@ -117,36 +198,40 @@ import { portfolio } from '../data/portfolio';
       text-align: center;
     }
 
-    .hero-text {
-      max-width: 100%;
-    }
-
-    .hero-image {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
-    }
-
-    .cta {
+    /* Reset order: DOM order is image first, text second */
+    .hero-image-wrap {
+      order: unset;
+      display: flex;
       justify-content: center;
     }
 
+    .hero-text {
+      order: unset;
+    }
+
+    .hero-image-ring {
+      width: 180px;
+      height: 180px;
+    }
+
+    .hero-location,
+    .cta,
     .socials {
       justify-content: center;
     }
+
+    .hero-text {
+      max-width: 100%;
+    }
   }
 
-  @media (max-width: 640px) {
-    .name {
-      font-size: 2rem;
-    }
-
-    .title {
-      font-size: 1.25rem;
-    }
-
+  @media (max-width: 480px) {
     .cta {
       flex-direction: column;
+    }
+
+    .btn {
+      justify-content: center;
     }
   }
 </style>

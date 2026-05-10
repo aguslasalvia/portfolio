@@ -4,16 +4,22 @@ import { portfolio } from '../data/portfolio';
 
 <section id="experience" class="experience">
   <div class="container">
-    <h2 class="section-title">Experience</h2>
+    <span class="section-eyebrow fade-in">Where I've worked</span>
+    <h2 class="section-title fade-in fade-in-delay-1">Experience</h2>
     <div class="timeline">
-      {portfolio.experience.map(exp => (
-        <article class="timeline-item">
-          <div class="timeline-header">
-            <h3 class="title">{exp.title}</h3>
-            <span class="period">{exp.period}</span>
+      {portfolio.experience.map((exp, i) => (
+        <article class={`timeline-item fade-in fade-in-delay-${i + 1}`}>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">{exp.title}</h3>
+                <p class="exp-company">{exp.company} · {exp.location}</p>
+              </div>
+              <span class="exp-period">{exp.period}</span>
+            </div>
+            <p class="exp-description">{exp.description}</p>
           </div>
-          <p class="company">{exp.company} · {exp.location}</p>
-          <p class="description">{exp.description}</p>
         </article>
       ))}
     </div>
@@ -21,57 +27,97 @@ import { portfolio } from '../data/portfolio';
 </section>
 
 <style>
+  .experience {
+    background: var(--bg-secondary);
+  }
+
   .timeline {
+    max-width: 680px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    max-width: 700px;
+    gap: 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
   }
 
   .timeline-item {
     position: relative;
-    padding-left: 1.5rem;
-    border-left: 2px solid var(--border);
+    padding-left: 2rem;
+    padding-bottom: 2.5rem;
   }
 
-  .timeline-item::before {
-    content: '';
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-dot {
     position: absolute;
-    left: -5px;
-    top: 0;
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
+    left: -4px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
   }
 
-  .timeline-header {
+  .timeline-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.25s;
+  }
+
+  .timeline-content:hover {
+    border-color: var(--border-hover);
+  }
+
+  .exp-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
   }
 
-  .title {
-    font-size: 1.1rem;
+  .exp-title {
+    font-size: 1rem;
     font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
   }
 
-  .period {
+  .exp-company {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--accent-light);
+    font-weight: 500;
   }
 
-  .company {
-    color: var(--accent);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+  .exp-period {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    flex-shrink: 0;
   }
 
-  .description {
+  .exp-description {
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 </style>
