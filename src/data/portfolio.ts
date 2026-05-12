@@ -1,9 +1,9 @@
 export const portfolio = {
   name: 'Agustin Lasalvia',
-  title: 'Backend Developer',
+  title: 'Junior Developer',
   location: 'Montevideo, Uruguay',
   greeting: 'Hola, soy',
-  description: "Junior Backend Developer focused on building reliable systems. Currently expanding into the frontend world, one component at a time.",
+  description: "Junior Developer passionate about building reliable systems and constantly growing. Enthusiastically expanding into the frontend world, one component at a time.",
   cvLink: '/Agustin_Lasalvia_CV.pdf',
 
   socials: {
@@ -13,9 +13,9 @@ export const portfolio = {
   },
 
   about: [
-    "I'm a Junior Backend Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
-    'My experience spans web applications built with Node.js, Go, and .NET. I like tackling complex backend challenges and continuously learning new tools.',
-    "Currently focused on expanding my skills in Go and exploring more of the frontend ecosystem — building full-stack projects along the way.",
+    "I'm a Junior Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
+    'My experience spans web applications built with Node.js, Go, .NET, and Python. I like tackling complex backend challenges and continuously learning new tools.',
+    "Currently expanding into the frontend world — building full-stack projects and growing comfortable on both sides of the stack.",
     "Above all, I'm driven by a constant desire to keep learning. Especially in an era shaped by AI, I believe staying curious and adaptable is just as important as any technical skill.",
   ],
 
@@ -26,14 +26,13 @@ export const portfolio = {
       { name: 'Go' },
       { name: 'C# / .NET' },
       { name: 'Python' },
-      { name: 'Express.js' },
     ],
     frontend: [
       { name: 'React' },
       { name: 'React Native' },
       { name: 'Astro' },
       { name: 'HTML & CSS' },
-      { name: 'Tailwind CSS' },
+
       { name: 'Bootstrap' },
     ],
     tools: [
