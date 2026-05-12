@@ -4,7 +4,7 @@ export const portfolio = {
   location: 'Montevideo, Uruguay',
   greeting: 'Hola, soy',
   description: "Junior Backend Developer focused on building reliable systems. Currently expanding into the frontend world, one component at a time.",
-  cvLink: '/Agustin Lasalvia 2025 CV.pdf',
+  cvLink: '/Agustin_Lasalvia_CV.pdf',
 
   socials: {
     linkedin: 'https://www.linkedin.com/in/agustin-lasalvia/',
@@ -54,13 +54,13 @@ export const portfolio = {
       location: 'Montevideo, Uruguay',
       description: 'Configure and install hardware and software on university devices. Ensure proper maintenance and repair of all IT equipment and accessories, including routers and printers. Additionally developed specific internal web services for the university using Go and Node.js.'
     },
-    {
-      title: 'Full Stack Junior Developer',
-      company: 'Freelance',
-      period: '2026 – Present',
-      location: 'Montevideo, Uruguay',
-      description: 'Developing a landing page for a startup focused on pharmaceutical research and drug development. Responsible for the full frontend using Astro, React, TypeScript, and Tailwind CSS, and the backend mail service built in Go. Also in charge of network management and advising on domain configuration and mail routing.'
-    },
+    // {
+    //   title: 'Full Stack Junior Developer',
+    //   company: 'Freelance',
+    //   period: '2026 – Present',
+    //   location: 'Montevideo, Uruguay',
+    //   description: 'Developing a landing page for a startup focused on pharmaceutical research and drug development. Responsible for the full frontend using Astro, React, TypeScript, and Tailwind CSS, and the backend mail service built in Go. Also in charge of network management and advising on domain configuration and mail routing.'
+    // },
     {
       title: 'Backend Developer',
       company: 'Freelance',
