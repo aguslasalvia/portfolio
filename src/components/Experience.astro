@@ -1,5 +1,10 @@
 ---
 import { portfolio } from '../data/portfolio';
+
+const experiences = portfolio.experience.map(exp => ({
+  ...exp,
+  isCurrent: exp.period.toLowerCase().includes('present'),
+}));
 ---
 
 <section id="experience" class="experience">
@@ -7,16 +12,19 @@ import { portfolio } from '../data/portfolio';
     <span class="section-eyebrow fade-in">Where I've worked</span>
     <h2 class="section-title fade-in fade-in-delay-1">Experience</h2>
     <div class="timeline">
-      {portfolio.experience.map((exp, i) => (
+      {experiences.map((exp, i) => (
         <article class={`timeline-item fade-in fade-in-delay-${i + 1}`}>
-          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class={`timeline-dot${exp.isCurrent ? ' timeline-dot--current' : ''}`} aria-hidden="true"></div>
           <div class="timeline-content">
             <div class="exp-header">
               <div>
                 <h3 class="exp-title">{exp.title}</h3>
                 <p class="exp-company">{exp.company} · {exp.location}</p>
               </div>
-              <span class="exp-period">{exp.period}</span>
+              <span class={`exp-period${exp.isCurrent ? ' exp-period--current' : ''}`}>
+                {exp.isCurrent && <span class="pulse-dot" aria-hidden="true"></span>}
+                {exp.period}
+              </span>
             </div>
             <p class="exp-description">{exp.description}</p>
           </div>
@@ -32,7 +40,6 @@ import { portfolio } from '../data/portfolio';
   }
 
   .timeline {
-    max-width: 680px;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -67,7 +74,16 @@ import { portfolio } from '../data/portfolio';
     height: 9px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), 0 0 10px rgba(16, 185, 129, 0.3);
+  }
+
+  .timeline-dot--current {
+    animation: dotPulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), 0 0 10px rgba(16, 185, 129, 0.3); }
+    50%       { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.15), 0 0 20px rgba(16, 185, 129, 0.45); }
   }
 
   .timeline-content {
@@ -75,11 +91,12 @@ import { portfolio } from '../data/portfolio';
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.25rem 1.5rem;
-    transition: border-color 0.25s;
+    transition: border-color 0.3s, box-shadow 0.3s;
   }
 
   .timeline-content:hover {
-    border-color: var(--border-hover);
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(16, 185, 129, 0.12);
   }
 
   .exp-header {
@@ -105,6 +122,9 @@ import { portfolio } from '../data/portfolio';
   }
 
   .exp-period {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     font-size: 0.78rem;
     color: var(--text-muted);
     white-space: nowrap;
@@ -113,6 +133,26 @@ import { portfolio } from '../data/portfolio';
     border: 1px solid var(--border);
     border-radius: 100px;
     flex-shrink: 0;
+  }
+
+  .exp-period--current {
+    color: var(--accent-light);
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.07);
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: pulseDot 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.7); }
   }
 
   .exp-description {

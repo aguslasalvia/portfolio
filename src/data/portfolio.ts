@@ -1,9 +1,9 @@
 export const portfolio = {
   name: 'Agustin Lasalvia',
-  title: 'Junior Developer',
+  title: 'Software Developer',
   location: 'Montevideo, Uruguay',
   greeting: 'Hola, soy',
-  description: "Junior Developer passionate about building reliable systems and constantly growing. Enthusiastically expanding into the frontend world, one component at a time.",
+  description: "Software Developer with a strong backend foundation, currently expanding into the frontend world and growing comfortable on both sides of the stack.",
   cvLink: '/Agustin_Lasalvia_CV.pdf',
 
   socials: {
@@ -13,7 +13,7 @@ export const portfolio = {
   },
 
   about: [
-    "I'm a Junior Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
+    "I'm a Software Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
     'My experience spans web applications built with Node.js, Go, .NET, and Python. I like tackling complex backend challenges and continuously learning new tools.',
     "Currently expanding into the frontend world — building full-stack projects and growing comfortable on both sides of the stack.",
     "Above all, I'm driven by a constant desire to keep learning. Especially in an era shaped by AI, I believe staying curious and adaptable is just as important as any technical skill.",
@@ -72,20 +72,15 @@ export const portfolio = {
   projects: [
     {
       title: 'UniWave',
+      image: '/projects/uniwave.png',
       description: 'A social network for Uruguayan university students to connect, share posts, and interact within an academic community.',
       tech: ['React Native', 'Expo', 'TypeScript', 'Go', 'JWT', 'Firebase', 'MinIO'],
       github: 'https://github.com/AgusLasalvia/uniwave-social-media',
       demo: 'https://uniwave.aguslasalvia.online'
     },
     {
-      title: 'Chemistry Net',
-      description: 'CMS for the Uruguayan Faculty of Chemistry (UDELAR), built with Clean Architecture and ASP.NET, using an LLM for the UI so I could focus entirely on the backend.',
-      tech: ['ASP.NET', 'C#', 'Entity Framework', 'SQLite', 'HTML', 'CSS'],
-      github: 'https://github.com/aguslasalvia/chemistry-net',
-      demo: 'https://fq.aguslasalvia.online'
-    },
-    {
       title: 'QUITEL 2023',
+      image: '/projects/quitel.png',
       description: 'Conference management system featuring registration, schedule management, and abstract submissions.',
       tech: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Express.js'],
       github: 'https://github.com/AgusLasalvia/Congress-2023',
@@ -93,6 +88,7 @@ export const portfolio = {
     },
     {
       title: 'SorvisLater',
+      image: '/projects/sorvis.png',
       description: 'A ticket tracker built originally for Minecraft, but flexible enough for any context.',
       tech: ['Node.js', 'MySQL', 'Express', 'TypeScript', 'React'],
       github: 'https://github.com/AgusLasalvia/SorviceLater',
@@ -100,6 +96,7 @@ export const portfolio = {
     },
     {
       title: 'YourDelivery',
+      image: '/projects/delivery.png',
       description: 'Package delivery management system with real-time order tracking and restaurant integration.',
       tech: ['C#', '.NET', 'MVC', 'Entity Framework', 'CSS', 'HTML'],
       github: 'https://github.com/AgusLasalvia/YourDelivery',
@@ -107,6 +104,7 @@ export const portfolio = {
     },
     {
       title: 'Tambo',
+      image: '/projects/tambo.png',
       description: 'Dairy farm management system handling inventory, production tracking, and sales.',
       tech: ['C#', '.NET', 'MVC'],
       github: 'https://github.com/AgusLasalvia/Tambo',
@@ -114,6 +112,7 @@ export const portfolio = {
     },
     {
       title: 'Research Equipment Usage Log',
+      image: '/projects/bitacora.png',
       description: 'Web app to track the usage and condition of laboratory equipment for a research center.',
       tech: ['Go', 'Gin', 'SQLite', 'Bootstrap', 'HTML', 'CSS', 'Linux'],
       github: 'https://github.com/AgusLasalvia/bitacora-cefi-go',

@@ -1,5 +1,6 @@
 ---
 import { portfolio } from '../data/portfolio';
+
 ---
 
 <section id="about" class="about">
@@ -11,6 +12,7 @@ import { portfolio } from '../data/portfolio';
         <p class={`fade-in fade-in-delay-${i + 1}`}>{paragraph}</p>
       ))}
     </div>
+
   </div>
 </section>
 
@@ -20,7 +22,6 @@ import { portfolio } from '../data/portfolio';
   }
 
   .content {
-    max-width: 680px;
     display: flex;
     flex-direction: column;
     gap: 1.1rem;
@@ -31,4 +32,5 @@ import { portfolio } from '../data/portfolio';
     line-height: 1.8;
     font-size: 0.975rem;
   }
+
 </style>

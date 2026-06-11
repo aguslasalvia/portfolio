@@ -1,10 +1,11 @@
 ---
 import { portfolio } from '../data/portfolio';
+import TechBadge from './TechBadge.astro';
 
 const categories = [
-  { label: 'Backend', key: 'backend' as const, icon: '⚙' },
-  { label: 'Frontend', key: 'frontend' as const, icon: '◈' },
-  { label: 'Databases & Tools', key: 'tools' as const, icon: '◎' },
+  { label: 'Backend', key: 'backend' as const },
+  { label: 'Frontend', key: 'frontend' as const },
+  { label: 'Databases & Tools', key: 'tools' as const },
 ];
 ---
 
@@ -16,13 +17,11 @@ const categories = [
     <div class="categories">
       {categories.map((cat, i) => (
         <div class={`category fade-in fade-in-delay-${i + 1}`}>
-          <div class="category-header">
-            <span class="category-icon">{cat.icon}</span>
-            <h3 class="category-label">{cat.label}</h3>
-          </div>
+          <div class="category-accent"></div>
+          <h3 class="category-label">{cat.label}</h3>
           <div class="skill-list">
             {portfolio.skills[cat.key].map(skill => (
-              <span class="skill-pill">{skill.name}</span>
+              <TechBadge name={skill.name} />
             ))}
           </div>
         </div>
@@ -47,32 +46,33 @@ const categories = [
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 1.75rem;
-    transition: border-color 0.25s;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   }
 
   .category:hover {
-    border-color: var(--border-hover);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 6px 30px var(--accent-glow);
+    transform: translateY(-3px);
   }
 
-  .category-header {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .category-icon {
-    font-size: 1rem;
-    color: var(--accent-light);
-    line-height: 1;
+  .category-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    opacity: 0.7;
   }
 
   .category-label {
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--accent-light);
+    margin-bottom: 1.25rem;
   }
 
   .skill-list {
@@ -81,25 +81,7 @@ const categories = [
     gap: 0.5rem;
   }
 
-  .skill-pill {
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.35rem 0.75rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text-secondary);
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .skill-pill:hover {
-    border-color: var(--accent);
-    color: var(--accent-light);
-  }
-
   @media (max-width: 768px) {
-    .categories {
-      grid-template-columns: 1fr;
-    }
+    .categories { grid-template-columns: 1fr; }
   }
 </style>
