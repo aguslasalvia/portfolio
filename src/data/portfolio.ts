@@ -71,17 +71,9 @@ export const portfolio = {
 
   projects: [
     {
-      title: 'UniWave',
-      image: '/projects/uniwave.png',
-      description: 'A social network for Uruguayan university students to connect, share posts, and interact within an academic community.',
-      tech: ['React Native', 'Expo', 'TypeScript', 'Go', 'JWT', 'Firebase', 'MinIO'],
-      github: 'https://github.com/AgusLasalvia/uniwave-social-media',
-      demo: 'https://uniwave.aguslasalvia.online'
-    },
-    {
       title: 'QUITEL 2023',
       image: '/projects/quitel.png',
-      description: 'Conference management system featuring registration, schedule management, and abstract submissions.',
+      description: 'Conference management system featuring registration, schedule management, and abstract submissions. Visually redesigned based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>, with this new iteration refined by Claude Fable, while I focused on the backend.',
       tech: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Express.js'],
       github: 'https://github.com/AgusLasalvia/Congress-2023',
       demo: 'https://quitel.aguslasalvia.online/'
@@ -89,26 +81,10 @@ export const portfolio = {
     {
       title: 'SorvisLater',
       image: '/projects/sorvis.png',
-      description: 'A ticket tracker built originally for Minecraft, but flexible enough for any context.',
-      tech: ['Node.js', 'MySQL', 'Express', 'TypeScript', 'React'],
+      description: 'A solution originally created to help game server administrators — specifically Minecraft in this case — manage issue reports. Originally built with Express, later upgraded to NestJS.',
+      tech: ['Node.js', 'MySQL', 'NestJS', 'TypeScript', 'React'],
       github: 'https://github.com/AgusLasalvia/SorviceLater',
       demo: 'https://sorvislater.netlify.app/login'
-    },
-    {
-      title: 'YourDelivery',
-      image: '/projects/delivery.png',
-      description: 'Package delivery management system with real-time order tracking and restaurant integration.',
-      tech: ['C#', '.NET', 'MVC', 'Entity Framework', 'CSS', 'HTML'],
-      github: 'https://github.com/AgusLasalvia/YourDelivery',
-      demo: 'https://yourdelivery.aguslasalvia.online/'
-    },
-    {
-      title: 'Tambo',
-      image: '/projects/tambo.png',
-      description: 'Dairy farm management system handling inventory, production tracking, and sales.',
-      tech: ['C#', '.NET', 'MVC'],
-      github: 'https://github.com/AgusLasalvia/Tambo',
-      demo: 'https://tambo.onrender.com/'
     },
     {
       title: 'Research Equipment Usage Log',
@@ -117,6 +93,30 @@ export const portfolio = {
       tech: ['Go', 'Gin', 'SQLite', 'Bootstrap', 'HTML', 'CSS', 'Linux'],
       github: 'https://github.com/AgusLasalvia/bitacora-cefi-go',
       demo: ''
+    },
+    {
+      title: 'YourDelivery',
+      image: '/projects/delivery.png',
+      description: 'Package tracking and delivery management system with real-time order tracking. I was in charge of both the backend and the frontend, marking my first full hands-on experience with the frontend world.',
+      tech: ['C#', '.NET', 'MVC', 'Entity Framework', 'SQL Server', 'CSS', 'HTML', 'JWT'],
+      github: 'https://github.com/AgusLasalvia/YourDelivery',
+      demo: 'https://yourdelivery.aguslasalvia.online/'
+    },
+    {
+      title: 'UniWave',
+      image: '/projects/uniwave.png',
+      description: 'A social network for Uruguayan university students to connect, share posts, and interact within an academic community.',
+      tech: ['React Native', 'Expo', 'TypeScript', 'Go', 'JWT', 'Firebase', 'MinIO'],
+      github: 'https://github.com/AgusLasalvia/uniwave-social-media',
+      demo: 'https://uniwave.aguslasalvia.online'
+    },
+    {
+      title: 'Tambo',
+      image: '/projects/tambo.png',
+      description: 'Staff and livestock management system that tracks whether each animal has been vaccinated, and lets a foreman assign tasks to farmhands and review their task history.',
+      tech: ['C#', '.NET', 'MVC', 'HTML', 'CSS'],
+      github: 'https://github.com/AgusLasalvia/Tambo',
+      demo: 'https://tambo.onrender.com/'
     },
   ],
 

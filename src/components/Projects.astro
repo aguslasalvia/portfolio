@@ -31,7 +31,7 @@ import TechBadge from './TechBadge.astro';
                 )}
               </div>
             </div>
-            <p class="project-description">{project.description}</p>
+            <p class="project-description" set:html={project.description} />
             <div class="tech-list">
               {project.tech.map(t => (
                 <TechBadge name={t} />
@@ -63,13 +63,13 @@ import TechBadge from './TechBadge.astro';
 
   .project-card:hover {
     border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent), 0 8px 40px rgba(16, 185, 129, 0.18);
+    box-shadow: 0 0 0 1px var(--accent), 0 8px 40px var(--accent-glow);
     transform: translateY(-4px);
   }
 
   .card-image {
     width: 100%;
-    height: 130px;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
     flex-shrink: 0;
@@ -139,6 +139,16 @@ import TechBadge from './TechBadge.astro';
     font-size: 0.875rem;
     line-height: 1.65;
     flex: 1;
+  }
+
+  .project-description :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .project-description :global(a:hover) {
+    color: var(--accent-hover);
   }
 
   .tech-list {
