@@ -84,7 +84,7 @@ export const portfolio = {
       description: 'A solution originally created to help game server administrators — specifically Minecraft in this case — manage issue reports. Originally built with Express, later upgraded to NestJS.',
       tech: ['Node.js', 'MySQL', 'NestJS', 'TypeScript', 'React'],
       github: 'https://github.com/AgusLasalvia/SorviceLater',
-      demo: 'https://sorvislater.netlify.app/login'
+      demo: 'https://later.aguslasalvia.online/'
     },
     {
       title: 'Research Equipment Usage Log',
