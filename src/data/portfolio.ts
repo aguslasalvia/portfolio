@@ -63,9 +63,9 @@ export const portfolio = {
     {
       title: 'Backend Developer',
       company: 'Freelance',
-      period: '2023',
+      period: '2023 – 2024',
       location: 'Montevideo, Uruguay',
-      description: 'Designed, developed, and deployed backend systems using Node.js and MongoDB, including data validation, REST API design, and production deployments.'
+      description: 'Designed, developed, and deployed backend systems using Node.js and MongoDB, including data validation, REST API design, and production deployments. Also designed and implemented a program to dynamically generate XML quiz files containing various question types for the Moodle learning platform using Python, in collaboration with UDELAR Chemistry departments.'
     }
   ],
 
