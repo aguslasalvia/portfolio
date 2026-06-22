@@ -81,9 +81,9 @@ export const portfolio = {
     {
       title: 'SorvisLater',
       image: '/projects/sorvis.png',
-      description: 'A solution originally created to help game server administrators — specifically Minecraft in this case — manage issue reports. Originally built with Express, later upgraded to NestJS.',
-      tech: ['Node.js', 'MySQL', 'NestJS', 'TypeScript', 'React'],
-      github: 'https://github.com/AgusLasalvia/SorviceLater',
+      description: 'A solution originally created to help game server administrators — specifically Minecraft in this case — manage issue reports. Originally built with Express, later upgraded to NestJS. UI based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>.',
+      tech: ['Node.js', 'SQLite', 'NestJS', 'TypeScript', 'React'],
+      github: 'https://github.com/aguslasalvia/sorvicelater',
       demo: 'https://later.aguslasalvia.online/'
     },
     {
