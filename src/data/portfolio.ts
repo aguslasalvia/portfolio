@@ -72,6 +72,7 @@ export const portfolio = {
   projects: [
     {
       title: 'Ravenkod',
+      latest: true,
       image: '/projects/ravenkod.png',
       description: 'Landing page for Ravenkod, a custom software studio building web, mobile, and desktop solutions. Features a Norse-forge inspired dark design with runic details and animated sections.',
       tech: ['React', 'TypeScript', 'Vite', 'CSS', 'React Router'],
