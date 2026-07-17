@@ -27,6 +27,8 @@ const slugMap: Record<string, string> = {
   'Express.js': 'express',
   'NestJS': 'nestjs',
   'Expo': 'expo',
+  'Vite': 'vite',
+  'React Router': 'reactrouter',
   'JWT': 'jsonwebtokens',
   'MinIO': 'minio',
 };

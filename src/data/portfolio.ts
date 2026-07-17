@@ -71,6 +71,14 @@ export const portfolio = {
 
   projects: [
     {
+      title: 'Ravenkod',
+      image: '/projects/ravenkod.png',
+      description: 'Landing page for Ravenkod, a custom software studio building web, mobile, and desktop solutions. Features a Norse-forge inspired dark design with runic details and animated sections.',
+      tech: ['React', 'TypeScript', 'Vite', 'CSS', 'React Router'],
+      github: 'https://github.com/aguslasalvia/ravenkod.com',
+      demo: 'https://ravenkod-com.vercel.app'
+    },
+    {
       title: 'QUITEL 2023',
       image: '/projects/quitel.png',
       description: 'Conference management system featuring registration, schedule management, and abstract submissions. Visually redesigned based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>, with this new iteration refined by Claude Fable, while I focused on the backend.',
