@@ -31,6 +31,10 @@ const slugMap: Record<string, string> = {
   'React Router': 'reactrouter',
   'JWT': 'jsonwebtokens',
   'MinIO': 'minio',
+  'Tauri': 'tauri',
+  'Redux Toolkit': 'redux',
+  'FastAPI': 'fastapi',
+  'Bun': 'bun',
 };
 
 // Override near-black brand colors so they're visible on dark backgrounds

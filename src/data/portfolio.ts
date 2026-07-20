@@ -75,15 +75,23 @@ export const portfolio = {
       latest: true,
       image: '/projects/ravenkod.png',
       description: 'Landing page for Ravenkod, a custom software studio building web, mobile, and desktop solutions. Features a Norse-forge inspired dark design with runic details and animated sections.',
-      tech: ['React', 'TypeScript', 'Vite', 'CSS', 'React Router'],
+      tech: ['React', 'TypeScript', 'Vite', 'CSS', 'React Router', 'Bun'],
       github: 'https://github.com/aguslasalvia/ravenkod.com',
       demo: 'https://ravenkod-com.vercel.app'
+    },
+    {
+      title: 'DashCord',
+      image: '/projects/dashcord.png',
+      description: 'Cross-platform desktop app for managing YouTube playlists — search songs, build playlists, and play them back — backed by a local FastAPI + MongoDB server, with optional integration into a custom <a href="https://github.com/AgusLasalvia/discord-bot" target="_blank" rel="noopener">Discord music bot</a> I built.',
+      tech: ['React', 'TypeScript', 'Tauri', 'Redux Toolkit', 'FastAPI', 'Python', 'MongoDB', 'JWT', 'Bun'],
+      github: 'https://github.com/AgusLasalvia/DashCord',
+      demo: ''
     },
     {
       title: 'QUITEL 2023',
       image: '/projects/quitel.png',
       description: 'Conference management system featuring registration, schedule management, and abstract submissions. Visually redesigned based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>, with this new iteration refined by Claude Fable, while I focused on the backend.',
-      tech: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Express.js'],
+      tech: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Express.js', 'Bun'],
       github: 'https://github.com/AgusLasalvia/Congress-2023',
       demo: 'https://quitel.aguslasalvia.online/'
     },
@@ -91,7 +99,7 @@ export const portfolio = {
       title: 'SorvisLater',
       image: '/projects/sorvis.png',
       description: 'A solution originally created to help game server administrators — specifically Minecraft in this case — manage issue reports. Originally built with Express, later upgraded to NestJS. UI based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>.',
-      tech: ['Node.js', 'SQLite', 'NestJS', 'TypeScript', 'React'],
+      tech: ['Node.js', 'SQLite', 'NestJS', 'TypeScript', 'React', 'Bun'],
       github: 'https://github.com/aguslasalvia/sorvicelater',
       demo: 'https://later.aguslasalvia.online/'
     },
@@ -115,7 +123,7 @@ export const portfolio = {
       title: 'UniWave',
       image: '/projects/uniwave.png',
       description: 'A social network for Uruguayan university students to connect, share posts, and interact within an academic community.',
-      tech: ['React Native', 'Expo', 'TypeScript', 'Go', 'JWT', 'Firebase', 'MinIO'],
+      tech: ['React Native', 'Expo', 'TypeScript', 'Go', 'JWT', 'Firebase', 'MinIO', 'Bun'],
       github: 'https://github.com/AgusLasalvia/uniwave-social-media',
       demo: 'https://uniwave.aguslasalvia.online'
     },
