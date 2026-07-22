@@ -89,7 +89,7 @@ export const portfolio = {
       longDescription: 'A cross-platform desktop app for searching YouTube, building playlists, and playing them back locally, packaged with Tauri v2 around a React 19 + TypeScript client so it stays lightweight on Windows, macOS, and Linux. It talks to a FastAPI + MongoDB backend handling auth (JWT) and playlist persistence, and optionally plugs into a custom <a href="https://github.com/AgusLasalvia/discord-bot" target="_blank" rel="noopener">Discord music bot</a> I built, so the same playlists can be queued straight into a voice channel. GitHub Actions builds and publishes releases for all three desktop platforms automatically.',
       tech: ['React', 'TypeScript', 'Tauri', 'Redux Toolkit', 'FastAPI', 'Python', 'MongoDB', 'JWT', 'Bun'],
       github: 'https://github.com/AgusLasalvia/DashCord',
-      demo: ''
+      demo: 'https://dashcord.aguslasalvia.online'
     },
     {
       title: 'QUITEL 2023',
