@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/#about' },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'Contact', href: '/#contact' },
 ];
 ---
 
@@ -14,7 +14,7 @@ const navLinks = [
 
     <div class="nav-links" id="navLinks">
       {navLinks.map(link => (
-        <a href={link.href} class="nav-link" data-section={link.href.slice(1)}>{link.label}</a>
+        <a href={link.href} class="nav-link" data-section={link.href.split('#')[1]}>{link.label}</a>
       ))}
     </div>
 
@@ -34,7 +34,7 @@ const navLinks = [
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     {navLinks.map(link => (
-      <a href={link.href} class="mobile-link" data-section={link.href.slice(1)}>{link.label}</a>
+      <a href={link.href} class="mobile-link" data-section={link.href.split('#')[1]}>{link.label}</a>
     ))}
   </div>
 </header>

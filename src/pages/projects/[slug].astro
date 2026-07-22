@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import TechBadge from '../../components/TechBadge.astro';
+import { portfolio } from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return portfolio.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const images = project.images?.length ? project.images : project.image ? [project.image] : [];
+---
+
+<Layout title={`${project.title} | Agustin Lasalvia`}>
+  <Header />
+  <main class="project-page">
+    <div class="container">
+      <a href="/#projects" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to projects
+      </a>
+
+      <div class="project-header">
+        <div class="title-row">
+          <h1>{project.title}</h1>
+          {'latest' in project && project.latest && <span class="latest-badge">Latest</span>}
+        </div>
+        <div class="project-links">
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener" class="btn btn-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          )}
+          {project.demo && (
+            <a href={project.demo} target="_blank" rel="noopener" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div class="tech-list">
+        {project.tech.map((t) => (
+          <TechBadge name={t} />
+        ))}
+      </div>
+
+      <p class="project-description" set:html={project.longDescription ?? project.description} />
+
+      {images.length > 0 && (
+        <div class={`gallery${images.length === 1 ? ' single' : ''}`}>
+          {images.map((img) => (
+            <div class="gallery-item">
+              <img src={img} alt={`${project.title} screenshot`} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .project-page {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    min-height: 100vh;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent-light);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .project-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .latest-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    background: var(--accent-glow);
+    border: 1px solid var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .project-links .btn svg {
+    flex-shrink: 0;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .project-description :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .project-description :global(a:hover) {
+    color: var(--accent-hover);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding-bottom: 4rem;
+  }
+
+  .gallery.single {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-card);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  @media (max-width: 640px) {
+    .project-page {
+      padding-top: 6.5rem;
+    }
+
+    .project-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -72,65 +72,81 @@ export const portfolio = {
   projects: [
     {
       title: 'Ravenkod',
+      slug: 'ravenkod',
       latest: true,
       image: '/projects/ravenkod.png',
       description: 'Landing page for Ravenkod, a custom software studio building web, mobile, and desktop solutions. Features a Norse-forge inspired dark design with runic details and animated sections.',
+      longDescription: 'The landing page for Ravenkod, a custom software studio I co-run that builds web, mobile, and desktop solutions. The single-page site walks through services, workflow, what sets the studio apart, the team, and contact, wrapped in a dark, Norse-forge inspired identity with runic details and an animated code window in the hero. Built with React 19, TypeScript, and Vite, with React Router handling navigation and a modular component structure — layouts, navbar, reusable section cards — that keeps the codebase easy to extend as the studio grows.',
       tech: ['React', 'TypeScript', 'Vite', 'CSS', 'React Router', 'Bun'],
       github: 'https://github.com/aguslasalvia/ravenkod.com',
       demo: 'https://ravenkod-com.vercel.app'
     },
     {
       title: 'DashCord',
+      slug: 'dashcord',
       image: '/projects/dashcord.png',
       description: 'Cross-platform desktop app for managing YouTube playlists — search songs, build playlists, and play them back — backed by a local FastAPI + MongoDB server, with optional integration into a custom <a href="https://github.com/AgusLasalvia/discord-bot" target="_blank" rel="noopener">Discord music bot</a> I built.',
+      longDescription: 'A cross-platform desktop app for searching YouTube, building playlists, and playing them back locally, packaged with Tauri v2 around a React 19 + TypeScript client so it stays lightweight on Windows, macOS, and Linux. It talks to a FastAPI + MongoDB backend handling auth (JWT) and playlist persistence, and optionally plugs into a custom <a href="https://github.com/AgusLasalvia/discord-bot" target="_blank" rel="noopener">Discord music bot</a> I built, so the same playlists can be queued straight into a voice channel. GitHub Actions builds and publishes releases for all three desktop platforms automatically.',
       tech: ['React', 'TypeScript', 'Tauri', 'Redux Toolkit', 'FastAPI', 'Python', 'MongoDB', 'JWT', 'Bun'],
       github: 'https://github.com/AgusLasalvia/DashCord',
       demo: ''
     },
     {
       title: 'QUITEL 2023',
+      slug: 'quitel',
       image: '/projects/quitel.png',
       description: 'Conference management system featuring registration, schedule management, and abstract submissions. Visually redesigned based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>, with this new iteration refined by Claude Fable, while I focused on the backend.',
+      longDescription: 'Registration platform for the XLVI International Congress of Theoretical Chemists of Latin Expression, built with UDELAR\'s Bioinformatics department. It covers the full attendee journey — pre-registration, full registration for confirmed participants and guests, and an abstract/poster submission flow the organizing committee uses to review academic work. The Node.js + Express backend sits on MongoDB, chosen deliberately over a relational database so the schema could flex around the varied shapes conference registrations and submissions tend to take. Frontend originally designed by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>, with this iteration refined by Claude Fable, while I focused on the backend.',
       tech: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Express.js', 'Bun'],
       github: 'https://github.com/AgusLasalvia/Congress-2023',
       demo: 'https://quitel.aguslasalvia.online/'
     },
     {
       title: 'SorvisLater',
+      slug: 'sorvislater',
       image: '/projects/sorvis.png',
       description: 'A solution originally created to help game server administrators — specifically Minecraft in this case — manage issue reports. Originally built with Express, later upgraded to NestJS. UI based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>.',
+      longDescription: 'A ServiceNow-style ticketing system originally built for Minecraft server admins to track player-reported issues, though the model works for any small team fielding support requests. Tickets carry status, priority, urgency, and impact; agents and admins handle assignment; and a knowledge base surfaces solutions to recurring problems. The backend started in Express with MySQL and was later migrated to NestJS with TypeORM and SQLite, which is now the recommended version since it needs no external database setup to run locally. UI based on a design by <a href="https://www.linkedin.com/in/joaquingomezleites/" target="_blank" rel="noopener">Joaquín Gómez</a>.',
       tech: ['Node.js', 'SQLite', 'NestJS', 'TypeScript', 'React', 'Bun'],
       github: 'https://github.com/aguslasalvia/sorvicelater',
       demo: 'https://later.aguslasalvia.online/'
     },
     {
       title: 'Research Equipment Usage Log',
+      slug: 'research-equipment-usage-log',
       image: '/projects/bitacora.png',
       description: 'Web app to track the usage and condition of laboratory equipment for a research center.',
+      longDescription: "Built for CeFI (Centro de Formación e Investigación) at UDELAR to track who used which piece of lab equipment, when, and in what condition. Supports quick record entry, per-record detail views, a full chronological table, and search by date, user, or equipment. Per the client's requirement, it runs fully offline inside the facility with no server dependency beyond the local Go binary — CSS and JavaScript are deliberately embedded directly in the HTML templates instead of served as separate static assets, keeping deployment down to a single binary plus a local SQLite file.",
       tech: ['Go', 'Gin', 'SQLite', 'Bootstrap', 'HTML', 'CSS', 'Linux'],
       github: 'https://github.com/AgusLasalvia/bitacora-cefi-go',
       demo: ''
     },
     {
       title: 'YourDelivery',
+      slug: 'yourdelivery',
       image: '/projects/delivery.png',
       description: 'Package tracking and delivery management system with real-time order tracking. I was in charge of both the backend and the frontend, marking my first full hands-on experience with the frontend world.',
+      longDescription: 'A nationwide package tracking and delivery management platform with distinct views for administrators, employees, and customers. Shipments move through IN_PROCESS and COMPLETED states, employees log stage-by-stage comments as a package moves through the network, and the system automatically flags whether urgent 24-hour deliveries are on track to meet their SLA. Built end to end — backend and frontend, my first hands-on frontend work — with C#, ASP.NET MVC, and SQL Server, structured into clean layers (Core, DTO, Presentation) to keep business logic separate from delivery mechanics.',
       tech: ['C#', '.NET', 'MVC', 'Entity Framework', 'SQL Server', 'CSS', 'HTML', 'JWT'],
       github: 'https://github.com/AgusLasalvia/YourDelivery',
       demo: 'https://yourdelivery.aguslasalvia.online/'
     },
     {
       title: 'UniWave',
+      slug: 'uniwave',
       image: '/projects/uniwave.png',
       description: 'A social network for Uruguayan university students to connect, share posts, and interact within an academic community.',
+      longDescription: "A social network built to help Uruguayan university students connect across institutions, share posts, and find people with shared interests. The mobile app is React Native with Expo; the backend is Go with Gin, backed by PostgreSQL through GORM — with schema migrations run automatically on startup — and MinIO for self-hosted image storage. Auth is JWT-based with bcrypt password hashing and email activation sent through Gmail, and the backend's dependencies (Postgres, MinIO) run through Docker Compose for local development, though the API itself runs natively without containers.",
       tech: ['React Native', 'Expo', 'TypeScript', 'Go', 'JWT', 'Firebase', 'MinIO', 'Bun'],
       github: 'https://github.com/AgusLasalvia/uniwave-social-media',
       demo: 'https://uniwave.aguslasalvia.online'
     },
     {
       title: 'Tambo',
+      slug: 'tambo',
       image: '/projects/tambo.png',
       description: 'Staff and livestock management system that tracks whether each animal has been vaccinated, and lets a foreman assign tasks to farmhands and review their task history.',
+      longDescription: 'A livestock and staff management app built as a final project for Programming 2 at Universidad ORT, together with Facundo Colombi. Lets a foreman register cattle, manage farmhands, and assign and track tasks per employee. Built with C# and .NET using MVC with Razor views, keeping business logic in a dedicated domain layer separate from the web layer. The UI sits on top of Bootstrap 5 with a custom green-toned design system — glassmorphism dashboard tiles, gradient table headers, status badges, and full-screen pastoral hero imagery on the auth screens.',
       tech: ['C#', '.NET', 'MVC', 'HTML', 'CSS'],
       github: 'https://github.com/AgusLasalvia/Tambo',
       demo: 'https://tambo.onrender.com/'

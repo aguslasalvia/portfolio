@@ -11,14 +11,17 @@ import TechBadge from './TechBadge.astro';
       {portfolio.projects.map((project, i) => (
         <article class={`project-card fade-in fade-in-delay-${(i % 4) + 1}${'latest' in project && project.latest ? ' latest' : ''}`}>
           {project.image && (
-            <div class="card-image">
+            <a href={`/projects/${project.slug}`} class="card-image">
               <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
-            </div>
+              <span class="card-image-overlay">View project</span>
+            </a>
           )}
           <div class="card-body">
             <div class="card-top">
               <div class="title-row">
-                <h3 class="project-title">{project.title}</h3>
+                <h3 class="project-title">
+                  <a href={`/projects/${project.slug}`}>{project.title}</a>
+                </h3>
                 {'latest' in project && project.latest && <span class="latest-badge">Latest</span>}
               </div>
               <div class="project-links">
@@ -76,6 +79,8 @@ import TechBadge from './TechBadge.astro';
   }
 
   .card-image {
+    position: relative;
+    display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
@@ -94,6 +99,24 @@ import TechBadge from './TechBadge.astro';
 
   .project-card:hover .card-image img {
     transform: scale(1.06);
+  }
+
+  .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(12, 10, 9, 0.55);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .project-card:hover .card-image-overlay {
+    opacity: 1;
   }
 
   .card-body {
@@ -121,8 +144,16 @@ import TechBadge from './TechBadge.astro';
   .project-title {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--text-primary);
     line-height: 1.3;
+  }
+
+  .project-title a {
+    color: var(--text-primary);
+    transition: color 0.2s;
+  }
+
+  .project-title a:hover {
+    color: var(--accent-light);
   }
 
   .latest-badge {
