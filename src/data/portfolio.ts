@@ -73,7 +73,6 @@ export const portfolio = {
     {
       title: 'Ravenkod',
       slug: 'ravenkod',
-      latest: true,
       image: '/projects/ravenkod.png',
       description: 'Landing page for Ravenkod, a custom software studio building web, mobile, and desktop solutions. Features a Norse-forge inspired dark design with runic details and animated sections.',
       longDescription: 'The landing page for Ravenkod, a custom software studio I co-run that builds web, mobile, and desktop solutions. The single-page site walks through services, workflow, what sets the studio apart, the team, and contact, wrapped in a dark, Norse-forge inspired identity with runic details and an animated code window in the hero. Built with React 19, TypeScript, and Vite, with React Router handling navigation and a modular component structure — layouts, navbar, reusable section cards — that keeps the codebase easy to extend as the studio grows.',
@@ -150,6 +149,17 @@ export const portfolio = {
       tech: ['C#', '.NET', 'MVC', 'HTML', 'CSS'],
       github: 'https://github.com/AgusLasalvia/Tambo',
       demo: 'https://tambo.onrender.com/'
+    },
+    {
+      title: 'MemeWars',
+      slug: 'memewars',
+      latest: true,
+      image: '/projects/memewars.png',
+      description: 'App to create rooms where users upload memes and vote for their favorites, with a per-room ranking. Go backend, React frontend served by the same binary.',
+      longDescription: 'An app for creating rooms where users upload memes and vote on their favorites, with a live ranking per room. The backend is Go with Gin and GORM over SQLite, exposing a REST API for rooms, users, memes, and votes, with uploaded images stored on disk and served statically. The frontend is a React 19 + TypeScript SPA built with Vite, using React Router for navigation between the entry, lobby, room, and ranking pages. The frontend build is bundled straight into the Go binary at build time, so the whole app — API and UI — ships and runs as a single self-contained executable.',
+      tech: ['Go', 'Gin', 'GORM', 'SQLite', 'React', 'TypeScript', 'Vite', 'React Router', 'Bun'],
+      github: 'https://github.com/aguslasalvia/memewars',
+      demo: 'https://memewars.aguslasalvia.online'
     },
   ],
 
