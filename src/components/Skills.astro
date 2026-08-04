@@ -3,29 +3,41 @@ import { portfolio } from '../data/portfolio';
 import TechBadge from './TechBadge.astro';
 
 const categories = [
-  { label: 'Backend', key: 'backend' as const },
-  { label: 'Frontend', key: 'frontend' as const },
-  { label: 'Databases & Tools', key: 'tools' as const },
+  { key: 'backend' as const },
+  { key: 'frontend' as const },
+  { key: 'tools' as const },
 ];
 ---
 
 <section id="skills" class="skills">
   <div class="container">
-    <span class="section-eyebrow fade-in">What I work with</span>
+    <div class="route-bar fade-in">
+      <span class="method method-get">GET</span>
+      <span class="route-path">/skills</span>
+    </div>
     <h2 class="section-title fade-in fade-in-delay-1">Skills</h2>
 
-    <div class="categories">
-      {categories.map((cat, i) => (
-        <div class={`category fade-in fade-in-delay-${i + 1}`}>
-          <div class="category-accent"></div>
-          <h3 class="category-label">{cat.label}</h3>
-          <div class="skill-list">
-            {portfolio.skills[cat.key].map(skill => (
-              <TechBadge name={skill.name} />
-            ))}
+    <div class="json-panel fade-in fade-in-delay-2">
+      <div class="json-panel-bar">
+        <span class="json-status">200 <span class="status-text">OK</span></span>
+        <span class="json-panel-label">application/json</span>
+      </div>
+      <div class="json-panel-body">
+        <span class="brace">{'{'}</span>
+        {categories.map((cat, i) => (
+          <div class="skills-line">
+            <span class="json-key">"{cat.key}"</span><span class="json-colon">:</span>
+            <span class="json-bracket">[</span>
+            <span class="skills-badges">
+              {portfolio.skills[cat.key].map(skill => (
+                <TechBadge name={skill.name} />
+              ))}
+            </span>
+            <span class="json-bracket">]</span>{i < categories.length - 1 && <span class="json-comma">,</span>}
           </div>
-        </div>
-      ))}
+        ))}
+        <span class="brace">{'}'}</span>
+      </div>
     </div>
   </div>
 </section>
@@ -35,53 +47,82 @@ const categories = [
     background: var(--bg-secondary);
   }
 
-  .categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .category {
+  .json-panel {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    position: relative;
     overflow: hidden;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   }
 
-  .category:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent), 0 6px 30px var(--accent-glow);
-    transform: translateY(-3px);
+  .json-panel-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
   }
 
-  .category-accent {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    opacity: 0.7;
-  }
-
-  .category-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  .json-status {
     color: var(--accent-light);
-    margin-bottom: 1.25rem;
+    font-weight: 600;
   }
 
-  .skill-list {
+  .json-status .status-text {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-left: 0.3em;
+  }
+
+  .json-panel-label {
+    color: var(--text-muted);
+  }
+
+  .json-panel-body {
+    padding: 1.4rem 1.5rem 1.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 2.1;
+  }
+
+  .brace {
+    display: block;
+    color: var(--text-muted);
+  }
+
+  .skills-line {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.3rem 0.4rem;
+    padding-left: 1.1rem;
   }
 
-  @media (max-width: 768px) {
-    .categories { grid-template-columns: 1fr; }
+  .json-key {
+    color: var(--accent-light);
+  }
+
+  .json-colon {
+    color: var(--text-muted);
+  }
+
+  .json-bracket,
+  .json-comma {
+    color: var(--text-muted);
+  }
+
+  .skills-badges {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.5rem 0;
+  }
+
+  @media (max-width: 640px) {
+    .json-panel-body {
+      font-size: 0.78rem;
+    }
   }
 </style>

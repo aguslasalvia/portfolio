@@ -29,10 +29,8 @@ export const portfolio = {
     ],
     frontend: [
       { name: 'React' },
-      { name: 'React Native' },
       { name: 'Astro' },
       { name: 'HTML & CSS' },
-
       { name: 'Bootstrap' },
     ],
     tools: [
@@ -41,7 +39,6 @@ export const portfolio = {
       { name: 'SQLite' },
       { name: 'Git' },
       { name: 'Linux' },
-      { name: 'Firebase' },
     ],
   },
 
@@ -168,3 +165,8 @@ export const portfolio = {
     email: 'contact@aguslasalvia.online'
   }
 };
+
+// Derived from the data above so components always match its real shape —
+// if a field is renamed or removed in `portfolio` above, these update automatically.
+export type Project = (typeof portfolio.projects)[number];
+export type ExperienceEntry = (typeof portfolio.experience)[number];

@@ -16,7 +16,20 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "astro": "6.3.1",
+    "framer-motion": "^12.43.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "sharp": "^0.34.5",
     "simple-icons": "^16.23.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/react": "^6.0.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "5"
+  },
+  "overrides": {
+    "vite": "^7.3.2"
   }
 }

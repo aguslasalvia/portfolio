@@ -1,12 +1,18 @@
 ---
 import { portfolio } from "../data/portfolio";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
 ---
 
 <section id="contact" class="contact">
   <div class="contact-glow" aria-hidden="true"></div>
   <div class="container">
     <div class="contact-inner fade-in">
-      <h2 class="contact-heading">Let's build something together</h2>
+      <div class="route-bar">
+        <span class="method method-post">POST</span>
+        <span class="route-path">/contact</span>
+      </div>
+      <h2 class="contact-heading">Let's build <span class="accent">something together</span></h2>
       <p class="contact-text">{portfolio.contact.text}</p>
 
       <a href={`mailto:${portfolio.contact.email}`} class="btn btn-primary email-btn">
@@ -14,15 +20,15 @@ import { portfolio } from "../data/portfolio";
         Say hello
       </a>
 
-      <div class="divider" aria-hidden="true">or find me on</div>
+      <div class="divider" aria-hidden="true">// or find me on</div>
 
       <div class="socials fade-in fade-in-delay-2">
         <a href={portfolio.socials.github} target="_blank" rel="noopener" class="social-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <GithubIcon width={17} height={17} />
           GitHub
         </a>
         <a href={portfolio.socials.linkedin} target="_blank" rel="noopener" class="social-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <LinkedInIcon width={17} height={17} />
           LinkedIn
         </a>
         <a href={portfolio.socials.instagram} target="_blank" rel="noopener" class="social-btn">
@@ -65,10 +71,11 @@ import { portfolio } from "../data/portfolio";
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
+  }
+
+  .contact-heading .accent {
+    color: var(--accent-light);
   }
 
   .contact-text {
@@ -86,10 +93,10 @@ import { portfolio } from "../data/portfolio";
   }
 
   .divider {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
@@ -116,7 +123,8 @@ import { portfolio } from "../data/portfolio";
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-muted);
     border: 1px solid var(--border);

@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import TechBadge from '../../components/TechBadge.astro';
+import GithubIcon from '../../components/icons/GithubIcon.astro';
+import ExternalLinkIcon from '../../components/icons/ExternalLinkIcon.astro';
 import { portfolio } from '../../data/portfolio';
 
 export function getStaticPaths() {
@@ -27,19 +29,25 @@ const images = project.images?.length ? project.images : project.image ? [projec
 
       <div class="project-header">
         <div class="title-row">
-          <h1>{project.title}</h1>
+          <div class="title-block">
+            <div class="route-bar">
+              <span class="method method-get">GET</span>
+              <span class="route-path">/projects/{project.slug}</span>
+            </div>
+            <h1>{project.title}</h1>
+          </div>
           {'latest' in project && project.latest && <span class="latest-badge">Latest</span>}
         </div>
         <div class="project-links">
           {project.github && (
             <a href={project.github} target="_blank" rel="noopener" class="btn btn-outline">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <GithubIcon width={15} height={15} />
               GitHub
             </a>
           )}
           {project.demo && (
             <a href={project.demo} target="_blank" rel="noopener" class="btn btn-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <ExternalLinkIcon width={15} height={15} />
               Live Demo
             </a>
           )}
@@ -79,7 +87,8 @@ const images = project.images?.length ? project.images : project.image ? [projec
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
     color: var(--text-muted);
     margin-bottom: 2rem;
     transition: color 0.2s;
@@ -105,22 +114,14 @@ const images = project.images?.length ? project.images : project.image ? [projec
     gap: 0.75rem;
   }
 
+  .title-block .route-bar {
+    margin-bottom: 0.4rem;
+  }
+
   .project-header h1 {
     font-size: 2rem;
     font-weight: 700;
     color: var(--text-primary);
-  }
-
-  .latest-badge {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    background: var(--accent-glow);
-    border: 1px solid var(--accent);
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
   }
 
   .project-links {

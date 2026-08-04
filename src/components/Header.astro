@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { label: 'About', href: '/#about' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Experience', href: '/#experience' },
-  { label: 'Projects', href: '/#projects' },
-  { label: 'Contact', href: '/#contact' },
+  { path: '/about', href: '/#about' },
+  { path: '/skills', href: '/#skills' },
+  { path: '/experience', href: '/#experience' },
+  { path: '/projects', href: '/#projects' },
+  { path: '/contact', href: '/#contact' },
 ];
 ---
 
@@ -14,7 +14,7 @@ const navLinks = [
 
     <div class="nav-links" id="navLinks">
       {navLinks.map(link => (
-        <a href={link.href} class="nav-link" data-section={link.href.split('#')[1]}>{link.label}</a>
+        <a href={link.href} class="nav-link" data-section={link.href.split('#')[1]}>{link.path}</a>
       ))}
     </div>
 
@@ -34,7 +34,7 @@ const navLinks = [
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     {navLinks.map(link => (
-      <a href={link.href} class="mobile-link" data-section={link.href.split('#')[1]}>{link.label}</a>
+      <a href={link.href} class="mobile-link" data-section={link.href.split('#')[1]}>{link.path}</a>
     ))}
   </div>
 </header>
@@ -61,7 +61,7 @@ const navLinks = [
 
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
-    header?.classList.toggle('scrolled', window.scrollY > 60);
+    header?.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
   // Active link
@@ -100,60 +100,51 @@ const navLinks = [
 <style>
   .header {
     position: fixed;
-    top: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
-    width: max-content;
-    max-width: calc(100vw - 2rem);
+    border-bottom: 1px solid transparent;
+    background: rgba(12, 10, 9, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 0.3s, background-color 0.3s;
   }
 
-  @media (max-width: 768px) {
-    .header {
-      width: 90%;
-      max-width: 90vw;
-    }
+  :global(.light) .header {
+    background: rgba(250, 250, 249, 0.78);
+  }
 
-    .nav {
-      width: 100%;
-      justify-content: space-between;
-    }
+  .header.scrolled {
+    border-bottom-color: var(--border);
   }
 
   .nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
-    padding: 0.5rem 0.65rem 0.5rem 1.25rem;
-    background: rgba(12, 10, 9, 0.82);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
   }
 
-  :global(.light) .nav {
-    background: rgba(250, 250, 249, 0.88);
-  }
-
-  .header.scrolled .nav {
-    border-color: rgba(249, 115, 22, 0.35);
-    box-shadow: 0 4px 32px rgba(249, 115, 22, 0.1), 0 0 0 1px rgba(249, 115, 22, 0.12);
+  @media (max-width: 768px) {
+    .nav {
+      padding: 0.75rem 1.25rem;
+    }
   }
 
   .logo {
+    font-family: var(--font-mono);
     font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.25rem 0.6rem;
-    border-radius: 100px;
+    letter-spacing: 0.02em;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
     border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--accent-light) 0%, #ef4444 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    color: var(--accent-light);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     flex-shrink: 0;
   }
 
@@ -165,28 +156,28 @@ const navLinks = [
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0 0.5rem;
+    gap: 0.2rem;
+    font-family: var(--font-mono);
   }
 
   .nav-link {
     position: relative;
-    font-size: 0.83rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    padding: 0.38rem 0.85rem;
-    border-radius: 100px;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
     transition: color 0.2s, background 0.2s;
     white-space: nowrap;
   }
 
   .nav-link:hover {
     color: var(--text-primary);
-    background: rgba(249, 115, 22, 0.08);
+    background: var(--bg-card);
   }
 
   .nav-link.active {
     color: var(--accent-light);
-    background: rgba(249, 115, 22, 0.1);
+    background: var(--accent-glow);
   }
 
   .nav-actions {
@@ -200,14 +191,14 @@ const navLinks = [
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text-muted);
     cursor: pointer;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
     flex-shrink: 0;
   }
 
@@ -253,39 +244,34 @@ const navLinks = [
 
   /* Mobile dropdown */
   .mobile-menu {
-    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     max-height: 0;
-    background: rgba(12, 10, 9, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid transparent;
-    border-radius: 16px;
-    transition: max-height 0.35s ease, padding 0.3s ease, border-color 0.3s ease;
-  }
-
-  :global(.light) .mobile-menu {
-    background: rgba(250, 250, 249, 0.95);
+    font-family: var(--font-mono);
+    background: var(--bg-primary);
+    border-top: 0 solid var(--border);
+    transition: max-height 0.35s ease, padding 0.3s ease, border-width 0.3s ease;
   }
 
   .mobile-menu.open {
     max-height: 320px;
-    padding: 0.5rem;
-    border-color: var(--border);
+    padding: 0.5rem 1.25rem 1rem;
+    border-top-width: 1px;
   }
 
   .mobile-link {
     font-size: 0.9rem;
     color: var(--text-secondary);
-    padding: 0.6rem 0.9rem;
-    border-radius: 10px;
-    transition: color 0.2s, background 0.2s;
+    padding: 0.7rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
   }
 
-  .mobile-link:hover  { color: var(--text-primary); background: rgba(249, 115, 22, 0.08); }
-  .mobile-link.active { color: var(--accent-light);  background: rgba(249, 115, 22, 0.1); }
+  .mobile-link:last-child { border-bottom: none; }
+
+  .mobile-link:hover  { color: var(--text-primary); }
+  .mobile-link.active { color: var(--accent-light); }
 
   @media (min-width: 769px) {
     .menu-toggle  { display: none; }

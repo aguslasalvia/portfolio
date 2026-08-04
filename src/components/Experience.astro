@@ -1,5 +1,6 @@
 ---
 import { portfolio } from '../data/portfolio';
+import ExperienceTimeline from './react/ExperienceTimeline';
 
 const experiences = portfolio.experience.map(exp => ({
   ...exp,
@@ -9,155 +10,17 @@ const experiences = portfolio.experience.map(exp => ({
 
 <section id="experience" class="experience">
   <div class="container">
-    <span class="section-eyebrow fade-in">Where I've worked</span>
-    <h2 class="section-title fade-in fade-in-delay-1">Experience</h2>
-    <div class="timeline">
-      {experiences.map((exp, i) => (
-        <article class={`timeline-item fade-in fade-in-delay-${i + 1}`}>
-          <div class={`timeline-dot${exp.isCurrent ? ' timeline-dot--current' : ''}`} aria-hidden="true"></div>
-          <div class="timeline-content">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-title">{exp.title}</h3>
-                <p class="exp-company">{exp.company} · {exp.location}</p>
-              </div>
-              <span class={`exp-period${exp.isCurrent ? ' exp-period--current' : ''}`}>
-                {exp.isCurrent && <span class="pulse-dot" aria-hidden="true"></span>}
-                {exp.period}
-              </span>
-            </div>
-            <p class="exp-description">{exp.description}</p>
-          </div>
-        </article>
-      ))}
+    <div class="route-bar fade-in">
+      <span class="method method-get">GET</span>
+      <span class="route-path">/experience</span>
     </div>
+    <h2 class="section-title fade-in fade-in-delay-1">Experience</h2>
+    <ExperienceTimeline client:visible experiences={experiences} />
   </div>
 </section>
 
 <style>
   .experience {
     background: var(--bg-secondary);
-  }
-
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    position: relative;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
-    background: var(--border);
-  }
-
-  .timeline-item {
-    position: relative;
-    padding-left: 2rem;
-    padding-bottom: 2.5rem;
-  }
-
-  .timeline-item:last-child {
-    padding-bottom: 0;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    left: -4px;
-    top: 6px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), 0 0 10px rgba(16, 185, 129, 0.3);
-  }
-
-  .timeline-dot--current {
-    animation: dotPulse 2.5s ease-in-out infinite;
-  }
-
-  @keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), 0 0 10px rgba(16, 185, 129, 0.3); }
-    50%       { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.15), 0 0 20px rgba(16, 185, 129, 0.45); }
-  }
-
-  .timeline-content {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  .timeline-content:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 24px rgba(16, 185, 129, 0.12);
-  }
-
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .exp-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.2rem;
-  }
-
-  .exp-company {
-    font-size: 0.85rem;
-    color: var(--accent-light);
-    font-weight: 500;
-  }
-
-  .exp-period {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    white-space: nowrap;
-    padding: 0.2rem 0.6rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    flex-shrink: 0;
-  }
-
-  .exp-period--current {
-    color: var(--accent-light);
-    border-color: rgba(16, 185, 129, 0.4);
-    background: rgba(16, 185, 129, 0.07);
-  }
-
-  .pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-    animation: pulseDot 2.5s ease-in-out infinite;
-  }
-
-  @keyframes pulseDot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.5; transform: scale(0.7); }
-  }
-
-  .exp-description {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
   }
 </style>
