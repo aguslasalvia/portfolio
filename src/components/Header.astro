@@ -141,16 +141,21 @@ const navLinks = [
     font-weight: 700;
     letter-spacing: 0.02em;
     padding: 0.3rem 0.65rem;
-    border-radius: 6px;
-    border: 1px solid var(--border);
+    border-radius: 8px;
+    border: none;
+    background: var(--bg-primary);
     color: var(--accent-light);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow:
+      3px 3px 7px var(--neu-dark),
+      -2px -2px 6px var(--neu-light);
+    transition: box-shadow 0.2s ease;
     flex-shrink: 0;
   }
 
   .logo:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 10px var(--accent-glow);
+    box-shadow:
+      inset 2px 2px 5px var(--neu-dark),
+      inset -1px -1px 4px var(--neu-light);
   }
 
   .nav-links {
@@ -172,12 +177,14 @@ const navLinks = [
 
   .nav-link:hover {
     color: var(--text-primary);
-    background: var(--bg-card);
   }
 
   .nav-link.active {
     color: var(--accent-light);
-    background: var(--accent-glow);
+    background: var(--bg-primary);
+    box-shadow:
+      inset 2px 2px 5px var(--neu-dark),
+      inset -1px -1px 4px var(--neu-light);
   }
 
   .nav-actions {
@@ -193,19 +200,23 @@ const navLinks = [
     justify-content: center;
     width: 32px;
     height: 32px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: transparent;
+    border-radius: 8px;
+    border: none;
+    background: var(--bg-primary);
     color: var(--text-muted);
+    box-shadow:
+      3px 3px 7px var(--neu-dark),
+      -2px -2px 6px var(--neu-light);
     cursor: pointer;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    transition: color 0.2s, box-shadow 0.2s;
     flex-shrink: 0;
   }
 
   .theme-toggle:hover {
-    border-color: var(--accent);
     color: var(--accent-light);
-    background: var(--accent-glow);
+    box-shadow:
+      inset 2px 2px 5px var(--neu-dark),
+      inset -1px -1px 4px var(--neu-light);
   }
 
   .theme-toggle .icon-sun  { display: none; }

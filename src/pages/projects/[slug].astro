@@ -170,10 +170,13 @@ const images = project.images?.length ? project.images : project.image ? [projec
   }
 
   .gallery-item {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border: none;
+    border-radius: 20px;
     overflow: hidden;
-    background: var(--bg-card);
+    background: var(--bg-primary);
+    box-shadow:
+      inset 5px 5px 11px var(--neu-dark),
+      inset -4px -4px 10px var(--neu-light);
   }
 
   .gallery-item img {

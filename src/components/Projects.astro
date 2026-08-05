@@ -1,6 +1,8 @@
 ---
 import { portfolio } from '../data/portfolio';
 import ProjectsGrid from './react/ProjectsGrid';
+
+const count = portfolio.projects.length;
 ---
 
 <section id="projects" class="projects">
@@ -9,7 +11,43 @@ import ProjectsGrid from './react/ProjectsGrid';
       <span class="method method-get">GET</span>
       <span class="route-path">/projects</span>
     </div>
-    <h2 class="section-title fade-in fade-in-delay-1">Projects</h2>
+
+    <div class="projects-heading fade-in fade-in-delay-1">
+      <h2 class="section-title">Projects</h2>
+      <p class="projects-sub">
+        {count} things I've shipped — from backend services to full-stack apps, solo and with teams.
+      </p>
+    </div>
+
     <ProjectsGrid client:visible projects={portfolio.projects} />
   </div>
 </section>
+
+<style>
+  .projects-heading {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+  }
+
+  .projects-sub {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 480px;
+  }
+
+  .route-bar .method {
+    border: none;
+    background: var(--bg-primary);
+    box-shadow:
+      inset 2px 2px 5px var(--neu-dark),
+      inset -1px -1px 4px var(--neu-light);
+  }
+</style>

@@ -5,6 +5,8 @@ import GithubIcon from "./icons/GithubIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
 
 const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
+const [firstName, ...rest] = portfolio.name.split(" ");
+const lastName = rest.join(" ");
 ---
 
 <section class="hero">
@@ -14,36 +16,17 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
 
   <div class="container">
     <div class="hero-content">
-      <div class="hero-image-wrap">
-        <div class="hero-image-ring">
-          <img src="/profile.png" alt={portfolio.name} class="hero-image" />
-        </div>
-        {
-          heroTechs.map((name, i) => {
-            const icon = getTechIcon(name);
-            return (
-              <span class={`float-badge fb-${i + 1}`} aria-hidden="true">
-                {icon && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d={icon.path} />
-                  </svg>
-                )}
-              </span>
-            );
-          })
-        }
-      </div>
-
       <div class="hero-text">
         <div class="route-bar">
           <span class="method method-get">GET</span>
           <span class="route-path">/whoami</span>
         </div>
-        <h1 class="hero-name">{portfolio.name}</h1>
+
+        <h1 class="hero-name">
+          <span class="hero-name-line">{firstName}</span>
+          <span class="hero-name-line hero-name-accent">{lastName}</span>
+        </h1>
+
         <p class="hero-title">{portfolio.title}</p>
         <p class="hero-location">
           <svg
@@ -59,7 +42,7 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
             ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
             ></path><circle cx="12" cy="10" r="3"></circle></svg
           >
-          {portfolio.location}
+          {portfolio.location}<span class="hero-location-sep">·</span>open to new opportunities
         </p>
         <p class="hero-description">{portfolio.description}</p>
 
@@ -126,6 +109,30 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
             >
           </a>
         </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <div class="hero-image-ring">
+          <img src="/profile.png" alt={portfolio.name} class="hero-image" />
+        </div>
+        {
+          heroTechs.map((name, i) => {
+            const icon = getTechIcon(name);
+            return (
+              <span class={`float-badge fb-${i + 1}`} aria-hidden="true">
+                {icon && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d={icon.path} />
+                  </svg>
+                )}
+              </span>
+            );
+          })
+        }
       </div>
     </div>
   </div>
@@ -205,7 +212,7 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
   .hero-content {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
   }
 
@@ -214,24 +221,43 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
     position: relative;
     animation: fadeUp 0.7s 0.1s ease both;
   }
+
   .hero-text {
     order: 1;
-    max-width: 520px;
+    max-width: 640px;
+  }
+
+  .route-bar {
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.02s ease both;
   }
 
   .hero-name {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-size: clamp(3.25rem, 8vw, 5.75rem);
     font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 0.6rem;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+    margin-bottom: 1.1rem;
     animation: fadeUp 0.6s 0.05s ease both;
+  }
+
+  .hero-name-line {
+    display: block;
+    color: var(--text-primary);
+  }
+
+  .hero-name-accent {
+    color: var(--accent);
+    background: linear-gradient(100deg, var(--accent) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .hero-title {
     font-family: var(--font-mono);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 0.6rem;
@@ -248,11 +274,17 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
     animation: fadeUp 0.6s 0.15s ease both;
   }
 
+  .hero-location-sep {
+    margin: 0 0.15em;
+    opacity: 0.6;
+  }
+
   .hero-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.75;
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
+    max-width: 520px;
     animation: fadeUp 0.6s 0.2s ease both;
   }
 
@@ -276,21 +308,21 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
     justify-content: center;
     width: 38px;
     height: 38px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
+    border-radius: 10px;
+    border: none;
+    background: var(--bg-primary);
     color: var(--text-muted);
-    transition:
-      border-color 0.2s,
-      color 0.2s,
-      background 0.2s,
-      box-shadow 0.2s;
+    box-shadow:
+      4px 4px 9px var(--neu-dark),
+      -3px -3px 8px var(--neu-light);
+    transition: color 0.2s, box-shadow 0.2s;
   }
 
   .socials a:hover {
-    border-color: var(--accent);
     color: var(--accent-light);
-    background: var(--accent-glow);
-    box-shadow: 0 0 16px var(--accent-glow);
+    box-shadow:
+      inset 3px 3px 7px var(--neu-dark),
+      inset -2px -2px 6px var(--neu-light);
   }
 
   .float-badge {
@@ -301,10 +333,12 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    border: none;
     color: var(--accent-light);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    box-shadow:
+      5px 5px 11px var(--neu-dark),
+      -4px -4px 10px var(--neu-light);
     animation: floaty 5s ease-in-out infinite;
   }
 
@@ -315,51 +349,16 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
     opacity: 1;
   }
 
-  /* Node — arriba derecha, junto a la cabeza */
-  .fb-1 {
-    top: 14%;
-    right: 2px;
-    animation-delay: 0s;
-  }
-  /* MongoDB — medio derecha, el punto más saliente del arco */
-  .fb-2 {
-    top: 45%;
-    right: -26px;
-    animation-delay: 0.6s;
-  }
-  /* Python — arriba izquierda, junto al hombro */
-  .fb-3 {
-    top: 14%;
-    left: 2px;
-    animation-delay: 1.2s;
-  }
-  /* C# — abajo derecha */
-  .fb-4 {
-    top: 73%;
-    right: 2px;
-    animation-delay: 1.8s;
-  }
-  /* Go — abajo izquierda */
-  .fb-5 {
-    top: 73%;
-    left: 2px;
-    animation-delay: 2.4s;
-  }
-  /* MySQL — medio izquierda, punto más saliente del arco */
-  .fb-6 {
-    top: 45%;
-    left: -26px;
-    animation-delay: 3s;
-  }
+  .fb-1 { top: 14%; right: 2px; animation-delay: 0s; }
+  .fb-2 { top: 45%; right: -26px; animation-delay: 0.6s; }
+  .fb-3 { top: 14%; left: 2px; animation-delay: 1.2s; }
+  .fb-4 { top: 73%; right: 2px; animation-delay: 1.8s; }
+  .fb-5 { top: 73%; left: 2px; animation-delay: 2.4s; }
+  .fb-6 { top: 45%; left: -26px; animation-delay: 3s; }
 
   @keyframes floaty {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-9px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
   }
 
   .hero-image-ring {
@@ -367,13 +366,13 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
     display: flex;
     justify-content: center;
     filter: drop-shadow(0 0 3px var(--accent))
-      drop-shadow(0 0 8px var(--accent))
-      drop-shadow(0 0 18px rgba(249, 115, 22, 0.4));
+      drop-shadow(0 0 10px var(--accent))
+      drop-shadow(0 0 26px rgba(249, 115, 22, 0.45));
     animation: heroFloat 6s ease-in-out infinite;
   }
 
   .hero-image {
-    width: 340px;
+    width: 360px;
     height: auto;
     display: block;
     -webkit-mask-image: linear-gradient(
@@ -385,13 +384,8 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
   }
 
   @keyframes heroFloat {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
   }
 
   .scroll-indicator {
@@ -405,24 +399,13 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
   }
 
   @keyframes bounce {
-    0%,
-    100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    50% {
-      transform: translateX(-50%) translateY(9px);
-    }
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(9px); }
   }
 
   @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @media (max-width: 768px) {
@@ -440,12 +423,16 @@ const heroTechs = ["Node.js", "MongoDB", "Python", "C#", "Go", "MySQL"];
       max-width: 100%;
     }
     .hero-image {
-      width: 240px;
+      width: 250px;
     }
+    .route-bar,
     .hero-location,
     .cta,
     .socials {
       justify-content: center;
+    }
+    .hero-description {
+      max-width: 100%;
     }
     .scroll-indicator {
       display: none;

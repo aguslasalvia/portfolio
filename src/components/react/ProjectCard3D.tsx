@@ -62,15 +62,12 @@ export default function ProjectCard3D({ project, index = 0 }: { project: Project
       {project.image && (
         <a href={`/projects/${project.slug}`} className="p3d-image">
           <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+          <span className="p3d-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
           <span className="p3d-image-overlay">View project</span>
         </a>
       )}
       <div className="p3d-body">
-        <div className="route-bar p3d-route-bar">
-          <span className="method method-get">GET</span>
-          <span className="route-path">/projects/{project.slug}</span>
-          {project.latest && <span className="latest-badge">Latest</span>}
-        </div>
+        {project.latest && <span className="p3d-featured-label">Most recent build</span>}
         <div className="p3d-top">
           <h3 className="p3d-title">
             <a href={`/projects/${project.slug}`}>{project.title}</a>
@@ -87,6 +84,10 @@ export default function ProjectCard3D({ project, index = 0 }: { project: Project
               </a>
             )}
           </div>
+        </div>
+        <div className="route-bar p3d-route-bar">
+          <span className="method method-get">GET</span>
+          <span className="route-path">/projects/{project.slug}</span>
         </div>
         <p className="p3d-description" dangerouslySetInnerHTML={{ __html: project.description }} />
         <div className="p3d-tech-row">

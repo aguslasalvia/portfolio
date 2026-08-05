@@ -127,15 +127,20 @@ import LinkedInIcon from "./icons/LinkedInIcon.astro";
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-muted);
-    border: 1px solid var(--border);
+    border: none;
+    background: var(--bg-primary);
+    box-shadow:
+      4px 4px 9px var(--neu-dark),
+      -3px -3px 8px var(--neu-light);
     padding: 0.55rem 1.1rem;
-    border-radius: 8px;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    border-radius: 10px;
+    transition: color 0.2s, box-shadow 0.2s;
   }
 
   .social-btn:hover {
-    border-color: var(--border-hover);
     color: var(--text-primary);
-    background: var(--bg-card);
+    box-shadow:
+      inset 3px 3px 7px var(--neu-dark),
+      inset -2px -2px 6px var(--neu-light);
   }
 </style>

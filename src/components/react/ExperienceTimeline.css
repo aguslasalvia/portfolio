@@ -40,17 +40,20 @@
 }
 
 .tl-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--bg-primary);
-  border: 2px solid var(--border-hover);
+  background: var(--bg-secondary);
+  border: none;
+  box-shadow:
+    inset 2px 2px 4px var(--neu-dark),
+    inset -1px -1px 3px var(--neu-light);
   flex-shrink: 0;
 }
 
 .tl-dot.is-current {
   background: var(--accent);
-  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
 }
 
 .tl-period {
@@ -63,18 +66,23 @@
 }
 
 .tl-content {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: 16px;
   padding: 1.25rem 1.5rem;
   flex: 1;
   min-width: 0;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow:
+    7px 7px 15px var(--neu-dark),
+    -6px -6px 13px var(--neu-light);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .tl-content:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 24px var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow:
+    9px 9px 18px var(--neu-dark),
+    -7px -7px 15px var(--neu-light);
 }
 
 .tl-title {
