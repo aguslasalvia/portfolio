@@ -7,7 +7,7 @@ import TechBadge from './TechBadge';
 import './ProjectCard3D.css';
 
 // Max tilt angle in degrees as the mouse moves from edge to edge of the card.
-const MAX_TILT_DEG = 8;
+const MAX_TILT_DEG = 2;
 
 // Spring feel for the tilt: higher stiffness snaps back faster,
 // higher damping means less bounce/overshoot.
