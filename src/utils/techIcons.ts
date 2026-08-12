@@ -35,6 +35,7 @@ const slugMap: Record<string, string> = {
   'Redux Toolkit': 'redux',
   'FastAPI': 'fastapi',
   'Bun': 'bun',
+  'Tailwind CSS': 'tailwindcss',
 };
 
 // Override near-black brand colors so they're visible on dark backgrounds
