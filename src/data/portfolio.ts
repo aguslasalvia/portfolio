@@ -86,7 +86,7 @@ export const portfolio = {
       longDescription: 'The landing page for Ravenkod, a custom software studio I co-run that builds web, mobile, and desktop solutions. The single-page site walks through services, workflow, what sets the studio apart, the team, and contact, wrapped in a dark, Norse-forge inspired identity with runic details and an animated code window in the hero. Built with React 19, TypeScript, and Vite, with React Router handling navigation and a modular component structure — layouts, navbar, reusable section cards — that keeps the codebase easy to extend as the studio grows.',
       tech: ['React', 'TypeScript', 'Vite', 'CSS', 'React Router', 'Bun'],
       github: 'https://github.com/aguslasalvia/ravenkod.com',
-      demo: 'https://ravenkod-com.vercel.app'
+      demo: 'https://ravenkod.aguslasalvia.online'
     },
     {
       title: 'DashCord',
