@@ -68,6 +68,17 @@ export const portfolio = {
 
   projects: [
     {
+      title: 'FQ Mock',
+      slug: 'fq-mock',
+      latest: true,
+      image: '/projects/fq.png',
+      description: 'Mock redesign of the Facultad de Química (UDELAR) website as a CMS, letting admins manage news, events, and pages instead of relying on static content. Backend built by me; frontend built with Claude Code under my supervision.',
+      longDescription: "An educational mock project reimagining UDELAR's Facultad de Química homepage as a proper CMS, similar in spirit to Drupal. Built with Clean Architecture in ASP.NET Core 8 and C#, split into Domain, Application, Infrastructure, and Web projects, with Entity Framework Core for persistence — SQLite was the engine chosen for its versatility, though EF Core means swapping in another database engine (SQL Server, PostgreSQL, etc.) would require no changes to the application logic. Authenticated admins manage news, events, academic announcements, and standalone routable pages, with group-scoped permissions controlling who can see and edit what — non-admin users only reach resources tied to their own group. The public-facing site mirrors a real faculty homepage: landing page, content feed, dynamic `/:slug` pages, and a contact map via Leaflet. I built the backend by hand, focusing on the Clean Architecture layering and domain logic, while the React 19 + TypeScript frontend (Vite, React Router 7, Tailwind CSS v4) was built with Claude Code under my supervision. Deliberately kept without test coverage or migrations, as a simplified learning exercise rather than a production system.",
+      tech: ['C#', '.NET', 'Entity Framework', 'SQLite', 'Clean Architecture', 'React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS'],
+      github: 'https://github.com/AgusLasalvia/chemistry-net',
+      demo: 'https://fq.aguslasalvia.online'
+    },
+    {
       title: 'Ravenkod',
       slug: 'ravenkod',
       image: '/projects/ravenkod.png',
@@ -150,7 +161,6 @@ export const portfolio = {
     {
       title: 'MemeWars',
       slug: 'memewars',
-      latest: true,
       image: '/projects/memewars.png',
       description: 'App to create rooms where users upload memes and vote for their favorites, with a per-room ranking. Go backend, React frontend served by the same binary.',
       longDescription: 'An app for creating rooms where users upload memes and vote on their favorites, with a live ranking per room. The backend is Go with Gin and GORM over SQLite, exposing a REST API for rooms, users, memes, and votes, with uploaded images stored on disk and served statically. The frontend is a React 19 + TypeScript SPA built with Vite, using React Router for navigation between the entry, lobby, room, and ranking pages. The frontend build is bundled straight into the Go binary at build time, so the whole app — API and UI — ships and runs as a single self-contained executable.',
