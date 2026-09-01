@@ -1,9 +1,9 @@
 export const portfolio = {
   name: 'Agustin Lasalvia',
-  title: 'Software Developer',
+  title: 'Backend Developer',
   location: 'Montevideo, Uruguay',
   greeting: 'Hola, soy',
-  description: "Software Developer with a strong backend foundation, currently expanding into the frontend world and growing comfortable on both sides of the stack.",
+  description: "Backend Developer building APIs and systems across Node.js, Go, .NET, and Python, backed by 5+ years in IT support and 1 year of freelance backend development.",
   cvLink: '/Agustin_Lasalvia_CV.pdf',
 
   socials: {
@@ -13,9 +13,9 @@ export const portfolio = {
   },
 
   about: [
-    "I'm a Software Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
+    "I'm a Backend Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
     'My experience spans web applications built with Node.js, Go, .NET, and Python. I like tackling complex backend challenges and continuously learning new tools.',
-    "Currently expanding into the frontend world — building full-stack projects and growing comfortable on both sides of the stack.",
+    "I'm also genuinely curious about the frontend world — I've built some projects by hand end to end, and on others I pair with Claude to design and build the UI while I focus on the backend, architecture, and deployment.",
     "Above all, I'm driven by a constant desire to keep learning. Especially in an era shaped by AI, I believe staying curious and adaptable is just as important as any technical skill.",
   ],
 
@@ -68,9 +68,19 @@ export const portfolio = {
 
   projects: [
     {
+      title: 'EventHub',
+      slug: 'eventhub',
+      latest: true,
+      image: '/projects/evenhub.png',
+      description: 'Event management platform for organizers to create and publish events and attendees to browse, reserve, and confirm tickets — role-based users, six ticket categories, and capacity tracking. Backend built by me; frontend built with Claude Code under my supervision.',
+      longDescription: "EventHub covers the full event lifecycle: organizers (Planner/Administrator roles) create, publish, and manage events with six ticket categories — Economic, Medium, Premium, VIP, Press, and Student — each with its own capacity tracking, while attendees browse and search events, reserve a ticket, and confirm attendance. Built as a Bun/TypeScript monorepo with three packages: a REST API on Express and MySQL for users, events, ticket types, and tickets that I built by hand; a React 19 + Vite single-page client with an organizer dashboard and the full attendee flow, built with Claude Code under my supervision; and a shared package of types/enums so both sides stay in sync on domain values. Deployed with Docker — a per-package Dockerfile plus a docker-compose.yml orchestrating MySQL, the API, and the client — behind Nginx with a Let's Encrypt certificate on my own home server.",
+      tech: ['React', 'TypeScript', 'Vite', 'React Router', 'Express.js', 'Bun', 'MySQL', 'JWT', 'Docker'],
+      github: 'https://github.com/aguslasalvia/eventhub',
+      demo: 'https://eventhub.aguslasalvia.online'
+    },
+    {
       title: 'FQ Mock',
       slug: 'fq-mock',
-      latest: true,
       image: '/projects/fq.png',
       description: 'Mock redesign of the Facultad de Química (UDELAR) website as a CMS, letting admins manage news, events, and pages instead of relying on static content. Backend built by me; frontend built with Claude Code under my supervision.',
       longDescription: "An educational mock project reimagining UDELAR's Facultad de Química homepage as a proper CMS, similar in spirit to Drupal. Built with Clean Architecture in ASP.NET Core 8 and C#, split into Domain, Application, Infrastructure, and Web projects, with Entity Framework Core for persistence — SQLite was the engine chosen for its versatility, though EF Core means swapping in another database engine (SQL Server, PostgreSQL, etc.) would require no changes to the application logic. Authenticated admins manage news, events, academic announcements, and standalone routable pages, with group-scoped permissions controlling who can see and edit what — non-admin users only reach resources tied to their own group. The public-facing site mirrors a real faculty homepage: landing page, content feed, dynamic `/:slug` pages, and a contact map via Leaflet. I built the backend by hand, focusing on the Clean Architecture layering and domain logic, while the React 19 + TypeScript frontend (Vite, React Router 7, Tailwind CSS v4) was built with Claude Code under my supervision. Deliberately kept without test coverage or migrations, as a simplified learning exercise rather than a production system.",
