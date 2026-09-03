@@ -1,9 +1,9 @@
 export const portfolio = {
   name: 'Agustin Lasalvia',
-  title: 'Backend Developer',
+  title: 'Full Stack Developer',
   location: 'Montevideo, Uruguay',
   greeting: 'Hola, soy',
-  description: "Backend Developer building APIs and systems across Node.js, Go, .NET, and Python, backed by 5+ years in IT support and 1 year of freelance backend development.",
+  description: "Full Stack Developer building APIs and systems across Node.js, Go, .NET, and Python, now going deeper into frontend development with React — backed by 5+ years in IT support and 1 year of freelance backend development.",
   cvLink: '/Agustin_Lasalvia_CV.pdf',
 
   socials: {
@@ -13,9 +13,9 @@ export const portfolio = {
   },
 
   about: [
-    "I'm a Backend Developer with a passion for building and solving problems. I enjoy designing systems that are clean, reliable, and maintainable.",
+    "I'm a Full Stack Developer with a passion for building and solving problems. I started out on the backend, and I enjoy designing systems that are clean, reliable, and maintainable.",
     'My experience spans web applications built with Node.js, Go, .NET, and Python. I like tackling complex backend challenges and continuously learning new tools.',
-    "I'm also genuinely curious about the frontend world — I've built some projects by hand end to end, and on others I pair with Claude to design and build the UI while I focus on the backend, architecture, and deployment.",
+    "I'm now leaning further into the frontend world, learning React in depth — I've built some projects by hand end to end, and on others I pair with Claude to design and build the UI while I focus on the backend, architecture, and deployment.",
     "Above all, I'm driven by a constant desire to keep learning. Especially in an era shaped by AI, I believe staying curious and adaptable is just as important as any technical skill.",
   ],
 
