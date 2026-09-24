@@ -133,10 +133,10 @@ export const portfolio = {
       slug: 'research-equipment-usage-log',
       image: '/projects/bitacora.png',
       description: 'Web app to track the usage and condition of laboratory equipment for a research center.',
-      longDescription: "Built for CeFI (Centro de Formación e Investigación) at UDELAR to track who used which piece of lab equipment, when, and in what condition. Supports quick record entry, per-record detail views, a full chronological table, and search by date, user, or equipment. Per the client's requirement, it runs fully offline inside the facility with no server dependency beyond the local Go binary — CSS and JavaScript are deliberately embedded directly in the HTML templates instead of served as separate static assets, keeping deployment down to a single binary plus a local SQLite file.",
-      tech: ['Go', 'Gin', 'SQLite', 'Bootstrap', 'HTML', 'CSS', 'Linux'],
+      longDescription: "Built for CeFI (Centro de Formación e Investigación) at UDELAR to track who used which piece of lab equipment, when, and in what condition. Supports quick record entry, per-record detail views, a full chronological table, and search by date, user, or equipment. Per the client's requirement, it runs fully offline inside the facility with no server dependency beyond the local Go binary — CSS and JavaScript are deliberately embedded directly in the HTML templates instead of served as separate static assets, keeping deployment down to a single binary plus a local SQLite file. The Demo has no backend service online, so it will display error on submit.",
+      tech: ['Go', 'Gin', 'SQLite', 'Astro' ,'HTML', 'CSS', 'Linux'],
       github: 'https://github.com/AgusLasalvia/bitacora-cefi-go',
-      demo: ''
+      demo: 'https://bitacora.aguslasalvia.online'
     },
     {
       title: 'YourDelivery',
